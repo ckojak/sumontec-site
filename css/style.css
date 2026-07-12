@@ -1,0 +1,1296 @@
+/* ======================================================================
+   SUMONTEC - Serviços Especializados de Engenharia Ltda
+   Folha de estilos principal
+   ====================================================================== */
+
+/* ======================================================================
+   1. RESET E VARIÁVEIS
+   ====================================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Paleta de cores */
+  --green: #15803D;
+  --green-dark: #166534;
+  --green-light: #22C55E;
+  --gray-dark: #334155;
+  --gray-medium: #475569;
+  --gray-light: #64748B;
+  --gray-bg: #F1F5F9;
+  --gray-border: #E2E8F0;
+  --white: #FFFFFF;
+  --whatsapp: #25D366;
+
+  /* Gradientes */
+  --gradient-hero: linear-gradient(135deg, var(--green-dark), var(--green));
+  --gradient-cards: linear-gradient(135deg, var(--green), var(--green-light));
+
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --shadow-green: 0 8px 24px rgba(21, 128, 61, 0.3);
+
+  /* Transições */
+  --transition-fast: 0.2s ease;
+  --transition: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Medidas */
+  --header-height: 80px;
+  --avatar-size: 64px;
+  --max-width: 1280px;
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--gray-bg);
+  color: var(--gray-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ======================================================================
+   2. HEADER / LOGO
+   ====================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--white);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.site-header .logo {
+  width: 25%;
+  max-width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-header .logo img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.site-header .logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header .logo-text strong {
+  font-size: 1.25rem;
+  color: var(--green);
+  letter-spacing: 0.5px;
+}
+
+.site-header .logo-text span {
+  font-size: 0.7rem;
+  color: var(--gray-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.site-header .nav-menu {
+  margin-left: auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.site-header .nav-menu a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-medium);
+  transition: color var(--transition);
+  position: relative;
+}
+
+.site-header .nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-cards);
+  transition: width var(--transition);
+}
+
+.site-header .nav-menu a:hover {
+  color: var(--green);
+}
+
+.site-header .nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* ======================================================================
+   3. LAYOUT PRINCIPAL
+   ====================================================================== */
+
+.main-layout {
+  display: flex;
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.main-layout .left-panel {
+  width: 50%;
+  padding: 2.5rem;
+  background-color: var(--gray-bg);
+}
+
+.main-layout .right-panel {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ======================================================================
+   4. CARDS DE SERVIÇOS
+   ====================================================================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: var(--white);
+  border: 2px solid var(--gray-border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-cards);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--green);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card .card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-cards);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.service-card h3 {
+  font-size: 1.1rem;
+  color: var(--gray-dark);
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  font-size: 0.875rem;
+  color: var(--gray-light);
+  margin-bottom: 0.75rem;
+}
+
+.service-card .card-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--green);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap var(--transition);
+}
+
+.service-card:hover .card-link {
+  gap: 0.7rem;
+}
+
+/* ======================================================================
+   5. EXPANSÃO DE CARDS
+   ====================================================================== */
+
+.service-card.expanded {
+  transform: scale(1.3);
+  box-shadow: var(--shadow-green);
+  border-color: var(--green);
+  z-index: 50;
+  position: relative;
+}
+
+.service-card.expanded::before {
+  transform: scaleX(1);
+}
+
+.service-card .card-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow), margin-top var(--transition);
+}
+
+.service-card.expanded .card-details {
+  max-height: 300px;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-border);
+}
+
+.service-card .card-details ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.service-card .card-details li {
+  font-size: 0.8rem;
+  color: var(--gray-medium);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.service-card .card-details li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* ======================================================================
+   6. HERO SECTION
+   ====================================================================== */
+
+.hero-section {
+  background: var(--gradient-hero);
+  color: var(--white);
+  padding: 3rem 2.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.hero-section .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.hero-section .hero-badge .badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--green-light);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-section .hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.hero-section .hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.hero-section .stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-section .stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.hero-section .stat-label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ======================================================================
+   7. CTAs
+   ====================================================================== */
+
+.cta-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform var(--transition), box-shadow var(--transition),
+    background var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-whatsapp {
+  background-color: var(--whatsapp);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover {
+  background-color: #1da851;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.btn-email {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.btn-email:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+}
+
+/* ======================================================================
+   8. AVATAR
+   ====================================================================== */
+
+.chat-avatar {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  background: var(--gradient-cards);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-green);
+  z-index: 900;
+  transition: transform var(--transition);
+}
+
+.chat-avatar:hover {
+  transform: scale(1.1);
+}
+
+.chat-avatar::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--green-light);
+  animation: pulse-ring 2s infinite;
+}
+
+.chat-avatar .avatar-status {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background: var(--green-light);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+}
+
+/* ======================================================================
+   9. BALÃO DE MENSAGENS
+   ====================================================================== */
+
+.message-bubble {
+  position: fixed;
+  bottom: calc(1.5rem + var(--avatar-size) + 0.75rem);
+  left: 1.5rem;
+  background: var(--white);
+  border: 2px solid var(--green);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  max-width: 280px;
+  box-shadow: var(--shadow-lg);
+  z-index: 899;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.message-bubble.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.message-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 24px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--green);
+}
+
+.message-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 26px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--white);
+  z-index: 1;
+}
+
+.message-bubble .bubble-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.3rem;
+}
+
+.message-bubble .bubble-text {
+  font-size: 0.85rem;
+  color: var(--gray-medium);
+}
+
+.message-bubble .typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--green);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 0.8s infinite;
+}
+
+/* ======================================================================
+   10. MENU EXPANSÍVEL
+   ====================================================================== */
+
+.expandable-menu {
+  position: fixed;
+  bottom: calc(1.5rem + var(--avatar-size) + 0.75rem);
+  left: 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  width: 240px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow), opacity var(--transition);
+  opacity: 0;
+  z-index: 898;
+}
+
+.expandable-menu.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.expandable-menu .menu-header {
+  padding: 1rem 1.25rem;
+  background: var(--gradient-cards);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expandable-menu .menu-list {
+  padding: 0.5rem 0;
+}
+
+.expandable-menu .menu-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--gray-medium);
+  transition: background var(--transition-fast), color var(--transition-fast),
+    padding-left var(--transition-fast);
+}
+
+.expandable-menu .menu-list a:hover {
+  background: var(--gray-bg);
+  color: var(--green);
+  padding-left: 1.5rem;
+}
+
+.expandable-menu .menu-list a .menu-icon {
+  width: 20px;
+  text-align: center;
+  color: var(--green);
+}
+
+/* ======================================================================
+   11. CARROSSEL DE CLIENTES
+   ====================================================================== */
+
+.clients-carousel {
+  background: var(--white);
+  padding: 2rem 0;
+  overflow: hidden;
+  border-top: 1px solid var(--gray-border);
+  border-bottom: 1px solid var(--gray-border);
+}
+
+.clients-carousel .carousel-title {
+  text-align: center;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray-light);
+  margin-bottom: 1.5rem;
+}
+
+.clients-carousel .carousel-track {
+  display: flex;
+  gap: 4rem;
+  animation: infinite-scroll 30s linear infinite;
+  width: max-content;
+}
+
+.clients-carousel:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+.clients-carousel .client-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 60px;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter var(--transition), opacity var(--transition);
+}
+
+.clients-carousel .client-item:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.clients-carousel .client-item img {
+  max-height: 50px;
+  object-fit: contain;
+}
+
+/* ======================================================================
+   12. SEÇÕES GERAIS
+   ====================================================================== */
+
+.section {
+  padding: 4rem 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--gray-dark);
+  margin-bottom: 0.5rem;
+}
+
+.section-title .accent {
+  color: var(--green);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--gray-light);
+  margin-bottom: 3rem;
+}
+
+/* Seção Sobre */
+.about-section {
+  background: var(--white);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  color: var(--gray-medium);
+}
+
+.about-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Seção Diferenciais */
+.differentials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.differential-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-border);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.differential-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.differential-card .diff-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--gradient-cards);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: var(--white);
+}
+
+.differential-card h3 {
+  font-size: 1.15rem;
+  color: var(--gray-dark);
+  margin-bottom: 0.5rem;
+}
+
+.differential-card p {
+  font-size: 0.875rem;
+  color: var(--gray-light);
+}
+
+/* ======================================================================
+   13. FORMULÁRIO DE CONTATO
+   ====================================================================== */
+
+.contact-section {
+  background: var(--gray-bg);
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-info-item .info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-cards);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contact-info-item .info-content h4 {
+  font-size: 0.9rem;
+  color: var(--gray-dark);
+  margin-bottom: 0.2rem;
+}
+
+.contact-info-item .info-content p {
+  font-size: 0.85rem;
+  color: var(--gray-light);
+}
+
+.contact-form {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-medium);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--gray-dark);
+  background: var(--gray-bg);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.1);
+  background: var(--white);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contact-form .btn-submit {
+  width: 100%;
+  background: var(--gradient-cards);
+  color: var(--white);
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.contact-form .btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-green);
+}
+
+/* ======================================================================
+   14. FOOTER
+   ====================================================================== */
+
+.site-footer {
+  background: var(--gray-dark);
+  color: var(--gray-border);
+  padding: 3rem 2rem 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-col h4 {
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-cards);
+}
+
+.footer-col p,
+.footer-col li {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--gray-light);
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.footer-col ul li a:hover {
+  color: var(--green-light);
+  padding-left: 5px;
+}
+
+.footer-col .footer-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--green-light);
+  margin-bottom: 0.75rem;
+}
+
+.footer-col .social-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.footer-col .social-links a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.footer-col .social-links a:hover {
+  background: var(--gradient-cards);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--gray-light);
+}
+
+/* ======================================================================
+   15. WHATSAPP FLOAT
+   ====================================================================== */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  background: var(--whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.75rem;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  z-index: 900;
+  transition: transform var(--transition);
+  animation: pulse-whatsapp 2.5s infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.whatsapp-float .whatsapp-tooltip {
+  position: absolute;
+  right: 70px;
+  background: var(--gray-dark);
+  color: var(--white);
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+}
+
+/* ======================================================================
+   16. RESPONSIVO
+   ====================================================================== */
+
+@media (max-width: 1024px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .main-layout .left-panel,
+  .main-layout .right-panel {
+    width: 100%;
+  }
+
+  .about-content,
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .differentials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding: 0 1rem;
+  }
+
+  .site-header .logo {
+    width: 60%;
+  }
+
+  .site-header .nav-menu {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-section .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .differentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 2rem 1.25rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-section .hero-stats {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .cta-container {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --header-height: 64px;
+    --avatar-size: 52px;
+  }
+
+  .site-header .logo {
+    width: 70%;
+  }
+
+  .site-header .logo-text strong {
+    font-size: 1rem;
+  }
+
+  .site-header .logo-text span {
+    font-size: 0.6rem;
+  }
+
+  .main-layout .left-panel {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .service-card {
+    padding: 1.25rem;
+  }
+
+  .service-card.expanded {
+    transform: scale(1.15);
+  }
+
+  .hero-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.25rem;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .hero-section .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .chat-avatar {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .message-bubble,
+  .expandable-menu {
+    left: 1rem;
+    max-width: 220px;
+    width: calc(100vw - 2rem);
+  }
+
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section {
+    padding: 2rem 0.75rem;
+  }
+}
+
+/* ======================================================================
+   KEYFRAMES / ANIMAÇÕES
+   ====================================================================== */
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-whatsapp {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5),
+      0 0 0 12px rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes blink-cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utilitário de animação de entrada */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
