@@ -3,19 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SUMONTEC - Serviços Especializados de Engenharia Ltda. Projetos e montagem de estruturas metálicas, concreto armado, instalações elétricas, pisos industriais e sistemas fotovoltaicos." />
+  <meta name="description" content="SUMONTEC - Serviços Especializados de Engenharia Ltda. Projetos, fabricação, montagem e sistemas fotovoltaicos." />
   <title>SUMONTEC - Serviços Especializados de Engenharia</title>
   <style>
+    /* =========================================================
+       SUMONTEC - ESTILOS PRINCIPAIS (style.css embutido)
+       Cores: azul escuro, branco, cinza, laranja/amarelo destaque
+       ========================================================= */
     :root {
-      --azul-primario: #0b3d91;
-      --azul-escuro: #062a63;
-      --azul-claro: #1e6bd6;
-      --cinza-escuro: #2b2f36;
-      --cinza-medio: #5b6470;
-      --cinza-claro: #eef2f7;
+      --azul-escuro: #0a2540;
+      --azul-medio: #143a66;
+      --azul-claro: #2a6fb0;
       --branco: #ffffff;
-      --sombra: 0 10px 30px rgba(11, 61, 145, 0.12);
-      --raio: 14px;
+      --cinza-claro: #f4f6f8;
+      --cinza-medio: #c7ced6;
+      --cinza-escuro: #4a5560;
+      --laranja: #ff8c1a;
+      --amarelo: #ffc107;
+      --sombra: 0 4px 16px rgba(10, 37, 64, 0.12);
+      --sombra-forte: 0 8px 30px rgba(10, 37, 64, 0.25);
+      --transicao: 0.3s ease;
+      --raio: 10px;
+      --max-largura: 1200px;
+      --fonte: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,301 +33,377 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: var(--fonte);
       color: var(--cinza-escuro);
       background: var(--branco);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    a { text-decoration: none; color: inherit; }
+    /* ---------- HEADER ---------- */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--azul-escuro);
+      color: var(--branco);
+      z-index: 1000;
+      box-shadow: var(--sombra);
+      transition: background var(--transicao);
+    }
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
+    .header-container {
+      max-width: var(--max-largura);
       margin: 0 auto;
       padding: 0 20px;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--branco);
-      border-bottom: 1px solid var(--cinza-claro);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-    }
-
-    .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      height: 80px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--branco);
     }
 
-    .logo-mark {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: 1px;
-      box-shadow: var(--sombra);
-    }
+    .logo-svg { width: 44px; height: 44px; flex-shrink: 0; }
 
-    .logo-text {
+    .logo-texto {
       display: flex;
       flex-direction: column;
       line-height: 1.1;
     }
 
-    .logo-text strong {
-      color: var(--azul-primario);
-      font-size: 20px;
+    .logo-texto .nome {
+      font-size: 1.6rem;
+      font-weight: 800;
       letter-spacing: 1px;
     }
 
-    .logo-text span {
+    .logo-texto .nome span { color: var(--laranja); }
+
+    .logo-texto .sub {
+      font-size: 0.62rem;
       color: var(--cinza-medio);
-      font-size: 12px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
     }
 
+    /* ---------- NAVEGAÇÃO ---------- */
     nav ul {
       list-style: none;
       display: flex;
-      gap: 26px;
+      gap: 30px;
+      align-items: center;
     }
 
     nav a {
-      color: var(--cinza-escuro);
+      color: var(--branco);
+      text-decoration: none;
       font-weight: 600;
-      font-size: 15px;
-      transition: color 0.2s ease;
+      font-size: 0.95rem;
+      padding: 8px 4px;
+      position: relative;
+      transition: color var(--transicao);
     }
 
-    nav a:hover { color: var(--azul-claro); }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--laranja);
+      transition: width var(--transicao);
+    }
 
-    .nav-toggle {
+    nav a:hover, nav a.ativo { color: var(--laranja); }
+    nav a:hover::after, nav a.ativo::after { width: 100%; }
+
+    .btn-cta-nav {
+      background: var(--laranja);
+      color: var(--branco) !important;
+      padding: 10px 22px !important;
+      border-radius: 30px;
+      transition: background var(--transicao), transform var(--transicao);
+    }
+
+    .btn-cta-nav:hover { background: var(--amarelo); transform: translateY(-2px); }
+    .btn-cta-nav::after { display: none; }
+
+    /* ---------- HAMBURGER ---------- */
+    .hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
+      cursor: pointer;
       background: none;
       border: none;
-      cursor: pointer;
+      padding: 8px;
+      z-index: 1100;
     }
 
-    .nav-toggle span {
-      width: 26px;
-      height: 3px;
-      background: var(--azul-primario);
+    .hamburger span {
+      width: 28px; height: 3px;
+      background: var(--branco);
       border-radius: 2px;
+      transition: var(--transicao);
     }
 
-    /* ===== HERO ===== */
+    .hamburger.ativo span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.ativo span:nth-child(2) { opacity: 0; }
+    .hamburger.ativo span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ---------- HERO ---------- */
     .hero {
-      background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-primario) 60%, var(--azul-claro) 100%);
-      color: #fff;
-      padding: 90px 0 110px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+      color: var(--branco);
+      padding: 120px 20px 80px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -120px;
-      top: -120px;
-      width: 420px;
-      height: 420px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 50%;
-    }
-
     .hero::before {
-      content: "";
+      content: '';
       position: absolute;
-      left: -80px;
-      bottom: -100px;
-      width: 300px;
-      height: 300px;
-      background: rgba(255,255,255,0.05);
+      top: -50%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,140,26,0.15) 0%, transparent 70%);
       border-radius: 50%;
     }
 
-    .hero-content {
+    .hero-conteudo {
+      max-width: var(--max-largura);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
       position: relative;
       z-index: 2;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
+      width: 100%;
     }
 
-    .hero-logo {
-      width: 130px;
-      height: 130px;
-      margin: 0 auto 28px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.12);
-      border: 2px solid rgba(255,255,255,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
+    .hero-texto h1 {
+      font-size: 3rem;
       font-weight: 800;
-      font-size: 44px;
-      letter-spacing: 2px;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      margin-bottom: 20px;
+      line-height: 1.15;
     }
 
-    .hero h1 {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: 0.5px;
+    .hero-texto h1 span { color: var(--laranja); }
+
+    .hero-texto p {
+      font-size: 1.15rem;
+      color: var(--cinza-medio);
+      margin-bottom: 30px;
+      max-width: 540px;
     }
 
-    .hero p.subtitle {
-      font-size: 20px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.9);
-      max-width: 720px;
-      margin: 0 auto 36px;
-    }
+    .hero-botoes { display: flex; gap: 18px; flex-wrap: wrap; }
 
     .btn {
       display: inline-block;
-      background: #fff;
-      color: var(--azul-primario);
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
       font-weight: 700;
-      padding: 16px 38px;
-      border-radius: 50px;
-      font-size: 16px;
-      letter-spacing: 0.5px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      font-size: 1rem;
+      transition: var(--transicao);
+      cursor: pointer;
+      border: none;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    .btn-primario {
+      background: var(--laranja);
+      color: var(--branco);
     }
+    .btn-primario:hover { background: var(--amarelo); transform: translateY(-3px); box-shadow: var(--sombra-forte); }
 
-    .btn-outline {
+    .btn-secundario {
       background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.7);
-      box-shadow: none;
-      margin-left: 14px;
+      color: var(--branco);
+      border: 2px solid var(--branco);
+    }
+    .btn-secundario:hover { background: var(--branco); color: var(--azul-escuro); transform: translateY(-3px); }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.12);
-      box-shadow: none;
-    }
+    .hero-svg { width: 100%; max-width: 380px; height: auto; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3)); }
 
-    /* ===== SECTIONS ===== */
-    section { padding: 80px 0; }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-      color: var(--azul-primario);
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: var(--cinza-medio);
-      max-width: 680px;
+    /* ---------- SEÇÕES GERAIS ---------- */
+    .secao {
+      padding: 90px 20px;
+      max-width: var(--max-largura);
       margin: 0 auto;
-      font-size: 16px;
     }
 
-    .section-title .bar {
-      width: 70px;
-      height: 4px;
-      background: var(--azul-claro);
-      border-radius: 4px;
-      margin: 14px auto 0;
+    .secao-titulo {
+      text-align: center;
+      margin-bottom: 60px;
     }
 
-    /* ===== SERVIÇOS ===== */
-    .servicos { background: var(--cinza-claro); }
+    .secao-titulo h2 {
+      font-size: 2.2rem;
+      color: var(--azul-escuro);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
 
-    .cards {
+    .secao-titulo .linha {
+      width: 70px; height: 4px;
+      background: var(--laranja);
+      margin: 0 auto 16px;
+      border-radius: 2px;
+    }
+
+    .secao-titulo p { color: var(--cinza-escuro); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+    /* ---------- SERVIÇOS ---------- */
+    #servicos { background: var(--cinza-claro); }
+
+    .servicos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 26px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
 
-    .card {
-      background: #fff;
+    .servico-categoria {
+      background: var(--branco);
       border-radius: var(--raio);
-      padding: 34px 26px;
+      padding: 35px 28px;
       box-shadow: var(--sombra);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border: 1px solid #e6ecf3;
+      transition: transform var(--transicao), box-shadow var(--transicao);
+      border-top: 4px solid var(--laranja);
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(11, 61, 145, 0.18);
+    .servico-categoria:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-forte);
     }
 
-    .card-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro));
+    .servico-categoria .icone {
+      width: 64px; height: 64px;
+      background: var(--azul-escuro);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
     }
 
-    .card-icon svg {
-      width: 34px;
-      height: 34px;
-      stroke: #fff;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+    .servico-categoria .icone svg { width: 36px; height: 36px; fill: var(--laranja); }
 
-    .card h3 {
-      color: var(--azul-primario);
-      font-size: 19px;
-      margin-bottom: 10px;
+    .servico-categoria h3 {
+      color: var(--azul-escuro);
+      font-size: 1.3rem;
+      margin-bottom: 16px;
       font-weight: 700;
     }
 
-    .card p {
-      color: var(--cinza-medio);
-      font-size: 15px;
+    .servico-categoria ul { list-style: none; }
+
+    .servico-categoria ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--cinza-claro);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
     }
 
-    /* ===== SOBRE ===== */
+    .servico-categoria ul li::before {
+      content: '▶';
+      color: var(--laranja);
+      font-size: 0.7rem;
+    }
+
+    .servico-categoria ul li:last-child { border-bottom: none; }
+
+    /* ---------- DIFERENCIAIS ---------- */
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .diferencial {
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: var(--raio);
+      transition: transform var(--transicao);
+    }
+
+    .diferencial:hover { transform: translateY(-6px); }
+
+    .diferencial .icone-dif {
+      width: 70px; height: 70px;
+      margin: 0 auto 18px;
+      background: var(--cinza-claro);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .diferencial .icone-dif svg { width: 36px; height: 36px; fill: var(--azul-escuro); }
+
+    .diferencial h4 { color: var(--azul-escuro); font-size: 1.1rem; margin-bottom: 10px; }
+    .diferencial p { font-size: 0.9rem; color: var(--cinza-escuro); }
+
+    /* ---------- PORTFOLIO ---------- */
+    #portfolio { background: var(--cinza-claro); }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .portfolio-item {
+      background: var(--branco);
+      border-radius: var(--raio);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: transform var(--transicao), box-shadow var(--transicao);
+    }
+
+    .portfolio-item:hover { transform: translateY(-6px); box-shadow: var(--sombra-forte); }
+
+    .portfolio-visual {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--azul-medio), var(--azul-escuro));
+    }
+
+    .portfolio-visual svg { width: 70px; height: 70px; fill: rgba(255,255,255,0.85); }
+
+    .portfolio-info { padding: 22px; }
+    .portfolio-info h4 { color: var(--azul-escuro); margin-bottom: 8px; font-size: 1.1rem; }
+    .portfolio-info p { font-size: 0.9rem; color: var(--cinza-escuro); }
+    .portfolio-info .tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 14px;
+      background: var(--laranja);
+      color: var(--branco);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ---------- SOBRE ---------- */
     .sobre-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -325,383 +411,813 @@
       align-items: center;
     }
 
-    .sobre-grid h2 {
-      color: var(--azul-primario);
-      font-size: 30px;
-      margin-bottom: 18px;
-    }
+    .sobre-texto h2 { color: var(--azul-escuro); font-size: 2rem; margin-bottom: 20px; }
+    .sobre-texto p { margin-bottom: 16px; color: var(--cinza-escuro); }
 
-    .sobre-grid p {
-      color: var(--cinza-medio);
-      margin-bottom: 14px;
-    }
+    .sobre-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
 
-    .sobre-destaques {
-      list-style: none;
-      margin-top: 18px;
-    }
-
-    .sobre-destaques li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 12px;
-      color: var(--cinza-escuro);
-      font-weight: 500;
-    }
-
-    .sobre-destaques li::before {
-      content: "";
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--azul-claro);
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
-      background-size: 14px;
-      background-repeat: no-repeat;
-      background-position: center;
-      margin-top: 2px;
-    }
-
-    .sobre-img {
-      background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro));
+    .stat {
+      text-align: center;
+      padding: 20px;
+      background: var(--cinza-claro);
       border-radius: var(--raio);
-      min-height: 320px;
+    }
+
+    .stat .numero { font-size: 2.2rem; font-weight: 800; color: var(--laranja); }
+    .stat .rotulo { font-size: 0.85rem; color: var(--cinza-escuro); }
+
+    .sobre-visual {
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 90px;
-      font-weight: 800;
-      letter-spacing: 4px;
-      box-shadow: var(--sombra);
     }
+    .sobre-visual svg { width: 100%; max-width: 400px; height: auto; }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--cinza-escuro);
-      color: #cfd4da;
-      padding: 60px 0 24px;
-    }
+    /* ---------- CONTATO ---------- */
+    #contato { background: var(--cinza-claro); }
 
-    .footer-grid {
+    .contato-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-columns: 1fr 1.2fr;
       gap: 40px;
-      margin-bottom: 40px;
     }
 
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .footer-logo .logo-mark { width: 46px; height: 46px; font-size: 17px; }
-
-    .footer-logo strong { color: #fff; font-size: 18px; }
-
-    footer h4 {
-      color: #fff;
-      margin-bottom: 16px;
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    footer ul { list-style: none; }
-
-    footer ul li { margin-bottom: 10px; font-size: 15px; }
-
-    footer a:hover { color: #fff; }
+    .contato-info h3 { color: var(--azul-escuro); font-size: 1.5rem; margin-bottom: 20px; }
+    .contato-info p { margin-bottom: 20px; color: var(--cinza-escuro); }
 
     .contato-item {
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 12px;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
     }
 
-    .contato-item svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--azul-claro);
-      fill: none;
-      stroke-width: 2;
+    .contato-item .icone-cont {
+      width: 44px; height: 44px;
+      background: var(--azul-escuro);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      margin-top: 2px;
     }
+    .contato-item .icone-cont svg { width: 22px; height: 22px; fill: var(--laranja); }
+    .contato-item .texto strong { display: block; color: var(--azul-escuro); }
+    .contato-item .texto span { font-size: 0.9rem; color: var(--cinza-escuro); }
+
+    .contato-form {
+      background: var(--branco);
+      padding: 35px;
+      border-radius: var(--raio);
+      box-shadow: var(--sombra);
+    }
+
+    .form-grupo { margin-bottom: 20px; }
+
+    .form-grupo label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--azul-escuro);
+      font-size: 0.9rem;
+    }
+
+    .form-grupo input,
+    .form-grupo textarea,
+    .form-grupo select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--cinza-medio);
+      border-radius: 8px;
+      font-family: var(--fonte);
+      font-size: 0.95rem;
+      transition: border var(--transicao);
+    }
+
+    .form-grupo input:focus,
+    .form-grupo textarea:focus,
+    .form-grupo select:focus {
+      outline: none;
+      border-color: var(--laranja);
+    }
+
+    .form-grupo.erro input,
+    .form-grupo.erro textarea,
+    .form-grupo.erro select { border-color: #e74c3c; }
+
+    .form-grupo .msg-erro {
+      color: #e74c3c;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-grupo.erro .msg-erro { display: block; }
+
+    .form-sucesso {
+      display: none;
+      background: #e8f8e8;
+      color: #2d7a2d;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .form-sucesso.visivel { display: block; animation: fadeSucesso 0.4s ease; }
+
+    @keyframes fadeSucesso { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--azul-escuro);
+      color: var(--cinza-medio);
+      padding: 50px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: var(--max-largura);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .footer-col h4 { color: var(--branco); margin-bottom: 16px; font-size: 1.05rem; }
+    .footer-col p, .footer-col a { font-size: 0.88rem; color: var(--cinza-medio); text-decoration: none; display: block; margin-bottom: 8px; transition: color var(--transicao); }
+    .footer-col a:hover { color: var(--laranja); }
+
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo .nome { font-size: 1.4rem; font-weight: 800; color: var(--branco); }
+    .footer-logo .nome span { color: var(--laranja); }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 20px;
       text-align: center;
-      font-size: 14px;
-      color: #9aa0a8;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.82rem;
     }
 
-    /* ===== RESPONSIVO ===== */
-    @media (max-width: 900px) {
+    /* ---------- ANIMAÇÕES ---------- */
+    .animar { opacity: 0; transform: translateY(40px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .animar.visivel { opacity: 1; transform: translateY(0); }
+
+    /* =========================================================
+       RESPONSIVO (responsive.css embutido)
+       ========================================================= */
+    @media (max-width: 992px) {
+      .hero-conteudo { grid-template-columns: 1fr; text-align: center; }
+      .hero-texto p { margin-left: auto; margin-right: auto; }
+      .hero-botoes { justify-content: center; }
+      .hero-visual { order: -1; }
+      .hero-svg { max-width: 260px; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
       .sobre-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .contato-grid { grid-template-columns: 1fr; }
+      .footer-container { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
       nav ul {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
+        position: fixed;
+        top: 0; right: -100%;
+        width: 75%; max-width: 320px;
+        height: 100vh;
+        background: var(--azul-escuro);
         flex-direction: column;
-        gap: 0;
-        padding: 10px 0;
-        border-bottom: 1px solid var(--cinza-claro);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        display: none;
+        justify-content: center;
+        gap: 25px;
+        padding: 40px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 30px rgba(0,0,0,0.3);
       }
 
-      nav ul.open { display: flex; }
+      nav ul.aberto { right: 0; }
 
-      nav ul li { width: 100%; }
+      nav a { font-size: 1.1rem; }
 
-      nav a {
-        display: block;
-        padding: 14px 20px;
-        border-bottom: 1px solid #f0f3f7;
-      }
-
-      .nav-toggle { display: flex; }
-
-      .hero { padding: 60px 0 80px; }
-      .hero h1 { font-size: 30px; }
-      .hero p.subtitle { font-size: 17px; }
-      .hero-logo { width: 100px; height: 100px; font-size: 34px; }
-
-      .btn-outline { margin-left: 0; margin-top: 14px; }
-
-      .section-title h2 { font-size: 26px; }
-      section { padding: 60px 0; }
+      .hero-texto h1 { font-size: 2.2rem; }
+      .secao-titulo h2 { font-size: 1.8rem; }
+      .secao { padding: 60px 20px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .footer-container { grid-template-columns: 1fr; gap: 25px; }
+      .sobre-stats { grid-template-columns: 1fr 1fr; }
     }
 
-    @media (max-width: 560px) {
-      .footer-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 25px; }
-      .logo-text strong { font-size: 17px; }
-      .logo-text span { font-size: 10px; }
-      .btn { padding: 14px 28px; font-size: 15px; }
+    @media (max-width: 480px) {
+      .hero-texto h1 { font-size: 1.8rem; }
+      .hero-texto p { font-size: 1rem; }
+      .btn { padding: 12px 24px; font-size: 0.9rem; }
+      .diferenciais-grid { grid-template-columns: 1fr; }
+      .logo-texto .nome { font-size: 1.3rem; }
+      .logo-texto .sub { font-size: 0.55rem; }
+      .contato-form { padding: 25px 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="#inicio" class="logo" aria-label="SUMONTEC - Página inicial">
-        <div class="logo-mark">S</div>
-        <div class="logo-text">
-          <strong>SUMONTEC</strong>
-          <span>Engenharia Especializada</span>
+  <!-- ================= HEADER ================= -->
+  <header id="header">
+    <div class="header-container">
+      <a href="#home" class="logo">
+        <!-- Ícone SVG logo SUMONTEC -->
+        <svg class="logo-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="46" height="46" rx="10" fill="#ff8c1a"/>
+          <path d="M14 34V16h6l4 8 4-8h6v18h-5V24l-5 9-5-9v10z" fill="#0a2540"/>
+        </svg>
+        <div class="logo-texto">
+          <span class="nome">SUM<span>ON</span>TEC</span>
+          <span class="sub">Engenharia Especializada</span>
         </div>
       </a>
 
-      <nav aria-label="Navegação principal">
+      <nav>
         <ul id="menu">
-          <li><a href="#inicio">Início</a></li>
+          <li><a href="#home" class="ativo">Início</a></li>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contato" class="btn-cta-nav">Contato</a></li>
         </ul>
       </nav>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="container hero-content">
-      <div class="hero-logo" aria-hidden="true">S</div>
-      <h1>SUMONTEC - Serviços Especializados de Engenharia</h1>
-      <p class="subtitle">
-        Soluções completas em projetos, fabricação e montagem de estruturas metálicas,
-        concreto armado, instalações elétricas, pisos industriais e sistemas fotovoltaicos.
-        Engenharia com segurança, qualidade e precisão.
-      </p>
-      <a href="#servicos" class="btn">Conheça nossos serviços</a>
-      <a href="#contato" class="btn btn-outline">Solicitar orçamento</a>
-    </div>
-  </section>
-
-  <!-- SERVIÇOS -->
-  <section class="servicos" id="servicos">
-    <div class="container">
-      <div class="section-title">
-        <h2>Serviços Oferecidos</h2>
-        <p>Atuação completa em engenharia com projetos, fabricação, montagem e implantação para indústria e construção.</p>
-        <div class="bar"></div>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <div class="hero-conteudo">
+      <div class="hero-texto">
+        <h1>Engenharia que <span>transforma</span> ideias em estruturas</h1>
+        <p>A SUMONTEC oferece serviços especializados em projetos, fabricação, montagem e sistemas fotovoltaicos com excelência técnica e compromisso com a qualidade.</p>
+        <div class="hero-botoes">
+          <a href="#servicos" class="btn btn-primario">Nossos Serviços</a>
+          <a href="#contato" class="btn btn-secundario">Solicitar Orçamento</a>
+        </div>
       </div>
-
-      <div class="cards">
-
-        <article class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg>
-          </div>
-          <h3>Projetos de Estruturas Metálicas</h3>
-          <p>Elaboração de projetos dimensionais e executivos para estruturas metálicas, com foco em segurança, otimização de materiais e normatização técnica.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/></svg>
-          </div>
-          <h3>Projetos de Estrutura de Concreto Armado</h3>
-          <p>Projetos estruturais em concreto armado para edificações industriais e comerciais, com detalhamento, memórias de cálculo e compatibilização.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-          </div>
-          <h3>Instalações Elétricas de Baixa Tensão</h3>
-          <p>Projetos de instalações elétricas em baixa tensão, incluindo iluminação, força, distribuição e proteção, conforme normas vigentes.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="10" rx="1"/><path d="M3 14h18"/><path d="M7 10V6h10v4"/></svg>
-          </div>
-          <h3>Projeto de Pisos Industriais</h3>
-          <p>Projetos de pisos industriais para alta carga e desgaste, considerando juntas, reforços e especificações técnicas adequadas ao uso.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M2 22h20"/><path d="M4 22V8l8-5 8 5v14"/><path d="M9 22v-6h6v6"/><path d="M9 11h6"/></svg>
-          </div>
-          <h3>Fabricação e Montagem de Estruturas Metálicas</h3>
-          <p>Fabricação e montagem de galpões e mezaninos em estrutura metálica, com controle de qualidade e execução conforme projeto aprovado.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M5 20V8"/><path d="M9 20V8"/><path d="M15 20V8"/><path d="M19 20V8"/><path d="M3 8h18"/></svg>
-          </div>
-          <h3>Pisos Industriais - Implantação e Reforma</h3>
-          <p>Execução de implantação e reforma de pisos industriais, com tratamentos, reparos e acabamentos para garantir durabilidade e desempenho.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="M5 5l2 2"/><path d="M17 17l2 2"/><path d="M19 5l-2 2"/><path d="M7 17l-2 2"/></svg>
-          </div>
-          <h3>Instalação e Montagem de Sistemas Fotovoltaicos</h3>
-          <p>Instalação e montagem de sistemas fotovoltaicos para geração de energia, com projeto, fixação, cabeamento e integração à rede.</p>
-        </article>
-
+      <div class="hero-visual">
+        <!-- SVG ilustrativo de estrutura metálica -->
+        <svg class="hero-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="240" width="260" height="12" fill="#ff8c1a" rx="2"/>
+          <rect x="40" y="80" width="16" height="160" fill="#ffffff" opacity="0.9"/>
+          <rect x="244" y="80" width="16" height="160" fill="#ffffff" opacity="0.9"/>
+          <polygon points="30,80 150,20 270,80" fill="#ffffff" opacity="0.85"/>
+          <line x1="56" y1="90" x2="244" y2="90" stroke="#ff8c1a" stroke-width="4"/>
+          <line x1="56" y1="130" x2="244" y2="130" stroke="#ff8c1a" stroke-width="3" opacity="0.7"/>
+          <line x1="56" y1="170" x2="244" y2="170" stroke="#ff8c1a" stroke-width="3" opacity="0.7"/>
+          <line x1="56" y1="90" x2="150" y2="130" stroke="#ffc107" stroke-width="2" opacity="0.6"/>
+          <line x1="244" y1="90" x2="150" y2="130" stroke="#ffc107" stroke-width="2" opacity="0.6"/>
+          <line x1="150" y1="130" x2="56" y2="170" stroke="#ffc107" stroke-width="2" opacity="0.6"/>
+          <line x1="150" y1="130" x2="244" y2="170" stroke="#ffc107" stroke-width="2" opacity="0.6"/>
+          <circle cx="150" cy="50" r="8" fill="#ffc107"/>
+        </svg>
       </div>
     </div>
   </section>
 
-  <!-- SOBRE -->
-  <section id="sobre">
-    <div class="container sobre-grid">
-      <div>
-        <h2>Sobre a SUMONTEC</h2>
-        <p>
-          A <strong>SUMONTEC - Serviços Especializados de Engenharia Ltda</strong> atua no mercado
-          com soluções técnicas em projetos e execução de obras industriais e comerciais,
-          unindo engenharia, segurança e eficiência em cada entrega.
-        </p>
-        <p>
-          Contamos com equipe especializada para desenvolver projetos e realizar montagens
-          com padrão de qualidade, prazos controlados e atendimento às normas técnicas vigentes.
-        </p>
-        <ul class="sobre-destaques">
-          <li>Equipe técnica especializada em engenharia</li>
-          <li>Projetos em conformidade com normas técnicas</li>
-          <li>Atendimento industrial e comercial</li>
-          <li>Foco em segurança, qualidade e prazo</li>
+  <!-- ================= SERVIÇOS ================= -->
+  <section class="secao" id="servicos">
+    <div class="secao-titulo animar">
+      <div class="linha"></div>
+      <h2>Nossos Serviços</h2>
+      <p>Soluções completas em engenharia com qualidade técnica e segurança.</p>
+    </div>
+
+    <div class="servicos-grid">
+      <!-- Categoria 1: PROJETOS -->
+      <div class="servico-categoria animar">
+        <div class="icone">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v2H3V3zm0 16h18v2H3v-2zm2-9h14v2H5V10zm0 4h14v2H5v-2zM2 6h2v12H2V6zm18 0h2v12h-2V6z"/></svg>
+        </div>
+        <h3>PROJETOS</h3>
+        <ul>
+          <li>Estruturas Metálicas</li>
+          <li>Concreto Armado</li>
+          <li>Instalações Elétricas</li>
+          <li>Pisos Industriais</li>
         </ul>
       </div>
-      <div class="sobre-img" aria-hidden="true">S</div>
+
+      <!-- Categoria 2: FABRICAÇÃO E MONTAGEM -->
+      <div class="servico-categoria animar">
+        <div class="icone">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.2L19.5 8 12 11.8 4.5 8 12 4.2zM4 9.3l7 3.5v7.4l-7-3.5V9.3zm9 10.9v-7.4l7-3.5v7.4l-7 3.5z"/></svg>
+        </div>
+        <h3>FABRICAÇÃO E MONTAGEM</h3>
+        <ul>
+          <li>Galpões</li>
+          <li>Mezaninos</li>
+          <li>Pisos Industriais</li>
+        </ul>
+      </div>
+
+      <!-- Categoria 3: SISTEMAS FOTOVOLTAICOS -->
+      <div class="servico-categoria animar">
+        <div class="icone">
+          <svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 100 16 8 8 0 000-16zm0 2a6 6 0 110 12 6 6 0 010-12zM12 1l2 3h-4l2-3zM12 23l-2-3h4l-2 3zM1 12l3-2v4l-3-2zm22 0l-3 2v-4l3 2z"/></svg>
+        </div>
+        <h3>SISTEMAS FOTOVOLTAICOS</h3>
+        <ul>
+          <li>Cálculo</li>
+          <li>Projeto</li>
+          <li>Instalação</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER / CONTATO -->
-  <footer id="contato">
-    <div class="container">
-      <div class="footer-grid">
+  <!-- ================= DIFERENCIAIS ================= -->
+  <section class="secao" id="diferenciais">
+    <div class="secao-titulo animar">
+      <div class="linha"></div>
+      <h2>Por que escolher a SUMONTEC?</h2>
+      <p>Diferenciais que garantem resultados com excelência.</p>
+    </div>
 
-        <div>
-          <div class="footer-logo">
-            <div class="logo-mark">S</div>
-            <strong>SUMONTEC</strong>
-          </div>
-          <p>Serviços Especializados de Engenharia Ltda.</p>
-          <p style="margin-top:10px;">Projetos, fabricação e montagem com qualidade técnica e compromisso com a segurança.</p>
+    <div class="diferenciais-grid">
+      <div class="diferencial animar">
+        <div class="icone-dif">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.1L12 16.5 6.5 19.3l1-6.1L3 8.9 9 8z"/></svg>
         </div>
-
-        <div>
-          <h4>Navegação</h4>
-          <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Contato</h4>
-          <div class="contato-item">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>(00) 0000-0000</span>
-          </div>
-          <div class="contato-item">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-            <span>contato@sumontec.com.br</span>
-          </div>
-          <div class="contato-item">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Endereço da Empresa - Cidade / UF</span>
-          </div>
-        </div>
-
+        <h4>Qualidade Técnica</h4>
+        <p>Equipe especializada com rigor técnico em cada projeto.</p>
       </div>
 
-      <div class="footer-bottom">
-        &copy; <span id="ano"></span> SUMONTEC - Serviços Especializados de Engenharia Ltda. Todos os direitos reservados.
+      <div class="diferencial animar">
+        <div class="icone-dif">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+        </div>
+        <h4>Compromisso</h4>
+        <p>Prazos e custos respeitados com total transparência.</p>
       </div>
+
+      <div class="diferencial animar">
+        <div class="icone-dif">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-2 16l-4-4 1.4-1.4L10 14.2l6.6-6.6L18 9l-8 8z"/></svg>
+        </div>
+        <h4>Segurança</h4>
+        <p>Normas de segurança aplicadas em todas as etapas.</p>
+      </div>
+
+      <div class="diferencial animar">
+        <div class="icone-dif">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </div>
+        <h4>Inovação</h4>
+        <p>Tecnologias modernas e soluções sustentáveis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE ================= -->
+  <section class="secao" id="sobre">
+    <div class="sobre-grid">
+      <div class="sobre-texto animar">
+        <h2>Sobre a SUMONTEC</h2>
+        <p>A SUMONTEC - Serviços Especializados de Engenharia Ltda é uma empresa dedicada a oferecer soluções completas em engenharia estrutural, montagem e energia solar fotovoltaica.</p>
+        <p>Com uma equipe altamente qualificada, atuamos desde a concepção do projeto até a execução final, garantindo qualidade, segurança e eficiência em cada entrega.</p>
+        <div class="sobre-stats">
+          <div class="stat">
+            <div class="numero" data-contagem="150">0</div>
+            <div class="rotulo">Projetos Entregues</div>
+          </div>
+          <div class="stat">
+            <div class="numero" data-contagem="10">0</div>
+            <div class="rotulo">Anos de Experiência</div>
+          </div>
+          <div class="stat">
+            <div class="numero" data-contagem="98">0</div>
+            <div class="rotulo">% Clientes Satisfeitos</div>
+          </div>
+          <div class="stat">
+            <div class="numero" data-contagem="25">0</div>
+            <div class="rotulo">Profissionais</div>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-visual animar">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="220" width="380" height="10" fill="#c7ced6" rx="3"/>
+          <rect x="40" y="100" width="14" height="120" fill="#0a2540"/>
+          <rect x="346" y="100" width="14" height="120" fill="#0a2540"/>
+          <polygon points="33,100 200,40 367,100" fill="#143a66"/>
+          <rect x="60" y="130" width="280" height="8" fill="#ff8c1a"/>
+          <rect x="60" y="160" width="280" height="6" fill="#ff8c1a" opacity="0.7"/>
+          <rect x="60" y="185" width="280" height="6" fill="#ff8c1a" opacity="0.7"/>
+          <rect x="180" y="60" width="40" height="30" fill="#ffc107" rx="3"/>
+          <line x1="190" y1="60" x2="190" y2="90" stroke="#0a2540" stroke-width="1"/>
+          <line x1="200" y1="60" x2="200" y2="90" stroke="#0a2540" stroke-width="1"/>
+          <line x1="210" y1="60" x2="210" y2="90" stroke="#0a2540" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFÓLIO ================= -->
+  <section class="secao" id="portfolio">
+    <div class="secao-titulo animar">
+      <div class="linha"></div>
+      <h2>Portfólio</h2>
+      <p>Alguns dos projetos realizados com excelência.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item animar">
+        <div class="portfolio-visual">
+          <svg viewBox="0 0 24 24"><path d="M12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zM4 4h16v3H4V4zm0 13h16v3H4v-3z"/></svg>
+        </div>
+        <div class="portfolio-info">
+          <h4>Galpão Industrial</h4>
+          <p>Estrutura metálica para galpão logístico de 2.000m².</p>
+          <span class="tag">Estruturas Metálicas</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item animar">
+        <div class="portfolio-visual">
+          <svg viewBox="0 0 24 24"><path d="M3 21h18v-2H3v2zM6 18h12V6H6v12zM9 9h6v2H9V9zm0 4h6v2H9v-2z"/></svg>
+        </div>
+        <div class="portfolio-info">
+          <h4>Mezanino Corporativo</h4>
+          <p>Mezanino em estrutura metálica para escritório.</p>
+          <span class="tag">Montagem</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item animar">
+        <div class="portfolio-visual">
+          <svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 100 16 8 8 0 000-16zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+        </div>
+        <div class="portfolio-info">
+          <h4>Sistema Fotovoltaico</h4>
+          <p>Instalação de sistema solar de 50kWp em indústria.</p>
+          <span class="tag">Fotovoltaico</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item animar">
+        <div class="portfolio-visual">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 2h8v2H8V8zm0 4h8v2H8v-2z"/></svg>
+        </div>
+        <div class="portfolio-info">
+          <h4>Piso Industrial</h4>
+          <p>Piso industrial em concreto armado de alta resistência.</p>
+          <span class="tag">Concreto Armado</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item animar">
+        <div class="portfolio-visual">
+          <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8H7z"/></svg>
+        </div>
+        <div class="portfolio-info">
+          <h4>Instalações Elétricas</h4>
+          <p>Projeto e execução de instalações elétricas industriais.</p>
+          <span class="tag">Elétrica</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item animar">
+        <div class="portfolio-visual">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.2L19.5 8 12 11.8 4.5 8 12 4.2z"/></svg>
+        </div>
+        <div class="portfolio-info">
+          <h4>Estrutura Metálica</h4>
+          <p>Fabricação e montagem de estrutura para edifício.</p>
+          <span class="tag">Fabricação</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTATO ================= -->
+  <section class="secao" id="contato">
+    <div class="secao-titulo animar">
+      <div class="linha"></div>
+      <h2>Entre em Contato</h2>
+      <p>Solicite seu orçamento ou tire suas dúvidas conosco.</p>
+    </div>
+
+    <div class="contato-grid">
+      <!-- Informações de contato -->
+      <div class="contato-info animar">
+        <h3>Fale com a SUMONTEC</h3>
+        <p>Estamos prontos para atender seu projeto com a qualidade que sua obra merece.</p>
+
+        <div class="contato-item">
+          <div class="icone-cont">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>
+          </div>
+          <div class="texto"><strong>Telefone</strong><span>(00) 0000-0000</span></div>
+        </div>
+
+        <div class="contato-item">
+          <div class="icone-cont">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="texto"><strong>E-mail</strong><span>contato@sumontec.com.br</span></div>
+        </div>
+
+        <div class="contato-item">
+          <div class="icone-cont">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+          </div>
+          <div class="texto"><strong>Endereço</strong><span>Av. Principal, 1000 - Centro</span></div>
+        </div>
+      </div>
+
+      <!-- Formulário de contato -->
+      <div class="contato-form animar">
+        <div class="form-sucesso" id="formSucesso">
+          ✓ Mensagem enviada com sucesso! Em breve entraremos em contato.
+        </div>
+
+        <form id="formContato" novalidate>
+          <div class="form-grupo">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" />
+            <span class="msg-erro">Por favor, informe seu nome.</span>
+          </div>
+
+          <div class="form-grupo">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" />
+            <span class="msg-erro">Por favor, informe um e-mail válido.</span>
+          </div>
+
+          <div class="form-grupo">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" />
+            <span class="msg-erro">Por favor, informe um telefone válido.</span>
+          </div>
+
+          <div class="form-grupo">
+            <label for="assunto">Assunto *</label>
+            <select id="assunto" name="assunto">
+              <option value="">Selecione um assunto</option>
+              <option value="projetos">Projetos</option>
+              <option value="fabricacao">Fabricação e Montagem</option>
+              <option value="fotovoltaico">Sistemas Fotovoltaicos</option>
+              <option value="outros">Outros</option>
+            </select>
+            <span class="msg-erro">Por favor, selecione um assunto.</span>
+          </div>
+
+          <div class="form-grupo">
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva seu projeto ou dúvida..."></textarea>
+            <span class="msg-erro">Por favor, escreva sua mensagem.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primario" style="width:100%;">Enviar Mensagem</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <span class="nome">SUM<span>ON</span>TEC</span>
+        </div>
+        <p>Serviços Especializados de Engenharia Ltda. Soluções completas em projetos, montagem e energia solar.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="#home">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <a href="#servicos">Projetos</a>
+        <a href="#servicos">Fabricação e Montagem</a>
+        <a href="#servicos">Sistemas Fotovoltaicos</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <p>(00) 0000-0000</p>
+        <p>contato@sumontec.com.br</p>
+        <p>Av. Principal, 1000</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 SUMONTEC - Serviços Especializados de Engenharia Ltda. Todos os direitos reservados.</p>
     </div>
   </footer>
 
+  <!-- =========================================================
+       JAVASCRIPT (main.js + form.js embutidos)
+       ========================================================= -->
   <script>
-    // Menu mobile
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('menu');
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    /* ---------- main.js: Menu hamburger, scroll, animações ---------- */
+    (function () {
+      'use strict';
 
-    // Fechar menu ao clicar em link (mobile)
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+      // Menu hamburger responsivo
+      const hamburger = document.getElementById('hamburger');
+      const menu = document.getElementById('menu');
+
+      hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('ativo');
+        menu.classList.toggle('aberto');
       });
-    });
 
-    // Ano dinâmico no rodapé
-    document.getElementById('ano').textContent = new Date().getFullYear();
+      // Fechar menu ao clicar em um link
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          hamburger.classList.remove('ativo');
+          menu.classList.remove('aberto');
+        });
+      });
+
+      // Destacar link ativo durante scroll (scroll spy)
+      const secoes = document.querySelectorAll('section[id]');
+      const linksMenu = menu.querySelectorAll('a');
+
+      function atualizarLinkAtivo() {
+        const posicaoScroll = window.scrollY + 100;
+        secoes.forEach(function (secao) {
+          const topo = secao.offsetTop;
+          const altura = secao.offsetHeight;
+          const id = secao.getAttribute('id');
+          if (posicaoScroll >= topo && posicaoScroll < topo + altura) {
+            linksMenu.forEach(function (link) {
+              link.classList.remove('ativo');
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('ativo');
+              }
+            });
+          }
+        });
+      }
+
+      window.addEventListener('scroll', atualizarLinkAtivo);
+
+      // Smooth scroll para links de navegação
+      linksMenu.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href.startsWith('#') && href.length > 1) {
+            e.preventDefault();
+            const alvo = document.querySelector(href);
+            if (alvo) {
+              const offset = 80;
+              const topo = alvo.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top: topo, behavior: 'smooth' });
+            }
+          }
+        });
+      });
+
+      // Animações ao scroll (Intersection Observer)
+      const elementosAnimar = document.querySelectorAll('.animar');
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visivel');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      elementosAnimar.forEach(function (el) {
+        observer.observe(el);
+      });
+
+      // Contagem animada das estatísticas
+      const numeros = document.querySelectorAll('[data-contagem]');
+      const observerContagem = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const alvo = parseInt(el.getAttribute('data-contagem'), 10);
+            let atual = 0;
+            const incremento = Math.ceil(alvo / 50);
+            const intervalo = setInterval(function () {
+              atual += incremento;
+              if (atual >= alvo) {
+                atual = alvo;
+                clearInterval(intervalo);
+              }
+              el.textContent = atual;
+            }, 30);
+            observerContagem.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      numeros.forEach(function (n) { observerContagem.observe(n); });
+    })();
+
+    /* ---------- form.js: Validação do formulário de contato ---------- */
+    (function () {
+      'use strict';
+
+      const form = document.getElementById('formContato');
+      const sucesso = document.getElementById('formSucesso');
+
+      // Função para validar e-mail
+      function validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+      }
+
+      // Função para validar telefone (opcional, mas se preenchido deve ser válido)
+      function validarTelefone(telefone) {
+        if (telefone.trim() === '') return true;
+        const regex = /^[\d\s()\-+]{8,}$/;
+        return regex.test(telefone);
+      }
+
+      // Marcar/desmarcar erro em um campo
+      function marcarErro(campo, temErro) {
+        const grupo = campo.closest('.form-grupo');
+        if (temErro) {
+          grupo.classList.add('erro');
+        } else {
+          grupo.classList.remove('erro');
+        }
+      }
+
+      // Validação em tempo real (blur)
+      const campos = form.querySelectorAll('input, select, textarea');
+      campos.forEach(function (campo) {
+        campo.addEventListener('blur', function () {
+          validarCampo(campo);
+        });
+        campo.addEventListener('input', function () {
+          const grupo = campo.closest('.form-grupo');
+          if (grupo.classList.contains('erro')) {
+            validarCampo(campo);
+          }
+        });
+      });
+
+      function validarCampo(campo) {
+        const id = campo.id;
+        const valor = campo.value.trim();
+        let erro = false;
+
+        if (id === 'nome') {
+          erro = valor.length < 3;
+        } else if (id === 'email') {
+          erro = !validarEmail(valor);
+        } else if (id === 'telefone') {
+          erro = !validarTelefone(valor);
+        } else if (id === 'assunto') {
+          erro = valor === '';
+        } else if (id === 'mensagem') {
+          erro = valor.length < 10;
+        }
+
+        marcarErro(campo, erro);
+        return !erro;
+      }
+
+      // Submissão do formulário
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let formularioValido = true;
+
+        campos.forEach(function (campo) {
+          if (!validarCampo(campo)) {
+            formularioValido = false;
+          }
+        });
+
+        if (formularioValido) {
+          // Simulação de envio (sem backend)
+          sucesso.classList.add('visivel');
+          form.reset();
+          // Remover mensagem após 5 segundos
+          setTimeout(function () {
+            sucesso.classList.remove('visivel');
+          }, 5000);
+        } else {
+          // Focar no primeiro campo com erro
+          const primeiroErro = form.querySelector('.form-grupo.erro input, .form-grupo.erro select, .form-grupo.erro textarea');
+          if (primeiroErro) primeiroErro.focus();
+        }
+      });
+    })();
   </script>
-
 </body>
-  </html>
+</html>
