@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#166534"/><stop offset="1" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg4)"/>
+  <g stroke="#FFFFFF" stroke-width="4">
+    <rect x="220" y="80" width="160" height="120" fill="#FFFFFF" fill-opacity="0.12"/>
+    <line x1="252" y1="80" x2="252" y2="200"/><line x1="284" y1="80" x2="284" y2="200"/>
+    <line x1="316" y1="80" x2="316" y2="200"/><line x1="348" y1="80" x2="348" y2="200"/>
+    <line x1="220" y1="120" x2="380" y2="120"/><line x1="220" y1="160" x2="380" y2="160"/>
+  </g>
+  <text x="300" y="255" text-anchor="middle" font-family="Arial" font-size="30" 
+        font-weight="bold" fill="#FFFFFF">Pisos Industriais</text>
+  <text x="300" y="285" text-anchor="middle" font-family="Arial" font-size="16" 
+        fill="#BBF7D0">Alta resistência e durabilidade</text>
+</svg>
