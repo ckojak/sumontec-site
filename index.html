@@ -2,613 +2,505 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SUMONTEC - Serviços Especializados de Engenharia Ltda. Projetos de estruturas metálicas, concreto armado, elétricos, pisos industriais, fabricação e montagem. Petrópolis-RJ." />
-  <meta name="keywords" content="engenharia, estruturas metálicas, concreto armado, projetos elétricos, pisos industriais, galpões, mezaninos, Petrópolis, SUMONTEC" />
-  <meta name="author" content="SUMONTEC" />
-  <meta property="og:title" content="SUMONTEC - Serviços Especializados de Engenharia" />
-  <meta property="og:description" content="Engenharia, projetos e execução. Petrópolis-RJ e região." />
+
+  <!-- SEO Meta Tags -->
+  <title>SUMONTEC - Serviços Especializados de Engenharia Ltda | Estruturas Metálicas, Concreto Armado e Pisos Industriais</title>
+  <meta name="description" content="SUMONTEC - Serviços Especializados de Engenharia Ltda. Estruturas metálicas, concreto armado, pisos industriais, instalações elétricas e energia fotovoltaica em Petrópolis-RJ e região." />
+  <meta name="keywords" content="engenharia, estruturas metálicas, concreto armado, pisos industriais, instalações elétricas, energia fotovoltaica, Petrópolis, SUMONTEC" />
+  <meta name="author" content="SUMONTEC - Serviços Especializados de Engenharia Ltda" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0f7a3d" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <title>SUMONTEC | Serviços Especializados de Engenharia Ltda</title>
+  <meta property="og:title" content="SUMONTEC - Serviços Especializados de Engenharia Ltda" />
+  <meta property="og:description" content="Engenharia, projetos e execução em Petrópolis-RJ. Estruturas metálicas, concreto armado, pisos industriais e mais." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="SUMONTEC" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --green-primary: #2d5016;
-      --green-dark: #1f3a0f;
-      --green-light: #4a7c2a;
-      --green-accent: #6fa83a;
-      --yellow: #f5c518;
-      --yellow-dark: #d9a90c;
-      --white: #ffffff;
-      --gray-dark: #2b2b2b;
-      --gray: #555555;
-      --gray-light: #f4f5f2;
-      --gray-border: #e2e5dd;
-      --shadow: 0 10px 30px rgba(0,0,0,0.08);
-      --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
-      --radius: 14px;
-      --transition: all 0.3s ease;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--gray-dark);
-      background: var(--white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; }
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 90px 0; }
-    .section-title { text-align: center; margin-bottom: 12px; }
-    .section-title h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--green-primary);
-      letter-spacing: -0.5px;
-    }
-    .section-title p {
-      color: var(--gray);
-      max-width: 620px;
-      margin: 12px auto 0;
-      font-size: 1.05rem;
-    }
-    .divider {
-      width: 70px; height: 4px; background: var(--yellow);
-      margin: 16px auto 0; border-radius: 4px;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 28px; border-radius: 50px;
-      font-weight: 600; font-size: 0.98rem;
-      transition: var(--transition); cursor: pointer; border: none;
-    }
-    .btn-primary { background: var(--green-primary); color: var(--white); }
-    .btn-primary:hover { background: var(--green-dark); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(45,80,22,0.35); }
-    .btn-yellow { background: var(--yellow); color: var(--gray-dark); }
-    .btn-yellow:hover { background: var(--yellow-dark); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(245,197,24,0.4); }
-    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
-    .btn-outline:hover { background: var(--white); color: var(--green-primary); }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    /* ===== HEADER ===== */
-    header {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-      background: rgba(255,255,255,0.97);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: var(--transition);
-    }
-    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
-    .logo { display: flex; align-items: center; gap: 12px; }
-    .logo-icon {
-      width: 46px; height: 46px; flex-shrink: 0;
-    }
-    .logo-text { display: flex; flex-direction: column; line-height: 1; }
-    .logo-text strong {
-      font-size: 1.5rem; font-weight: 800; color: var(--green-primary);
-      letter-spacing: -0.5px;
-    }
-    .logo-text strong span { color: var(--yellow-dark); }
-    .logo-text small { font-size: 0.62rem; color: var(--gray); letter-spacing: 1.5px; text-transform: uppercase; }
-    .nav-menu { display: flex; align-items: center; gap: 30px; }
-    .nav-menu a {
-      font-weight: 500; color: var(--gray-dark); position: relative; transition: var(--transition);
-    }
-    .nav-menu a::after {
-      content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px;
-      background: var(--green-primary); transition: var(--transition);
-    }
-    .nav-menu a:hover { color: var(--green-primary); }
-    .nav-menu a:hover::after { width: 100%; }
-    .nav-cta { margin-left: 10px; }
-    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
-    .menu-toggle span { width: 26px; height: 3px; background: var(--green-primary); border-radius: 3px; transition: var(--transition); }
-    .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    /* ===== HERO ===== */
-    .hero {
-      position: relative; min-height: 100vh; display: flex; align-items: center;
-      padding: 120px 0 80px;
-      background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-dark) 100%);
-      color: var(--white); overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: -50%; right: -10%; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(245,197,24,0.15) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero::after {
-      content: ''; position: absolute; bottom: -30%; left: -10%; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(111,168,58,0.2) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 720px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(245,197,24,0.2); border: 1px solid rgba(245,197,24,0.4);
-      padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 500;
-      margin-bottom: 24px; color: var(--yellow);
-    }
-    .hero h1 {
-      font-size: 3.4rem; font-weight: 800; line-height: 1.15; margin-bottom: 22px; letter-spacing: -1px;
-    }
-    .hero h1 span { color: var(--yellow); }
-    .hero p { font-size: 1.15rem; opacity: 0.92; margin-bottom: 36px; max-width: 560px; }
-    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-    .hero-stats { display: flex; gap: 50px; margin-top: 60px; flex-wrap: wrap; }
-    .hero-stat strong { font-size: 2.2rem; font-weight: 800; color: var(--yellow); display: block; }
-    .hero-stat span { font-size: 0.9rem; opacity: 0.85; }
-
-    /* ===== SERVICES ===== */
-    .services { background: var(--gray-light); }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 50px;
-    }
-    .service-card {
-      background: var(--white); border-radius: var(--radius); padding: 36px 28px;
-      box-shadow: var(--shadow); transition: var(--transition);
-      border-top: 4px solid transparent; position: relative; overflow: hidden;
-    }
-    .service-card:hover {
-      transform: translateY(-8px); box-shadow: var(--shadow-lg); border-top-color: var(--green-primary);
-    }
-    .service-icon {
-      width: 64px; height: 64px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--green-primary), var(--green-light));
-      display: flex; align-items: center; justify-content: center; margin-bottom: 22px;
-      transition: var(--transition);
-    }
-    .service-card:hover .service-icon { background: linear-gradient(135deg, var(--yellow), var(--yellow-dark)); }
-    .service-icon svg { width: 34px; height: 34px; fill: var(--white); }
-    .service-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--green-primary); margin-bottom: 12px; }
-    .service-card p { color: var(--gray); font-size: 0.95rem; }
-
-    /* ===== WHY US ===== */
-    .why { background: var(--white); }
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-    .why-card { text-align: center; padding: 40px 24px; border-radius: var(--radius); transition: var(--transition); }
-    .why-card:hover { background: var(--gray-light); }
-    .why-icon {
-      width: 80px; height: 80px; margin: 0 auto 22px; border-radius: 50%;
-      background: var(--gray-light); display: flex; align-items: center; justify-content: center;
-      transition: var(--transition);
-    }
-    .why-card:hover .why-icon { background: var(--green-primary); }
-    .why-icon svg { width: 40px; height: 40px; fill: var(--green-primary); transition: var(--transition); }
-    .why-card:hover .why-icon svg { fill: var(--white); }
-    .why-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--green-primary); margin-bottom: 12px; }
-    .why-card p { color: var(--gray); font-size: 0.98rem; }
-
-    /* ===== HOW IT WORKS ===== */
-    .how { background: linear-gradient(135deg, var(--green-dark), var(--green-primary)); color: var(--white); }
-    .how .section-title h2 { color: var(--white); }
-    .how .section-title p { color: rgba(255,255,255,0.85); }
-    .how .divider { background: var(--yellow); }
-    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; position: relative; }
-    .how-steps::before {
-      content: ''; position: absolute; top: 40px; left: 16%; right: 16%; height: 2px;
-      background: rgba(245,197,24,0.3); z-index: 0;
-    }
-    .step { text-align: center; position: relative; z-index: 1; }
-    .step-number {
-      width: 80px; height: 80px; margin: 0 auto 24px; border-radius: 50%;
-      background: var(--yellow); color: var(--gray-dark); display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; font-weight: 800; box-shadow: 0 8px 20px rgba(245,197,24,0.4);
-    }
-    .step h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--white); }
-    .step p { color: rgba(255,255,255,0.85); font-size: 0.98rem; }
-
-    /* ===== CLIENTS ===== */
-    .clients { background: var(--gray-light); }
-    .clients-grid {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 50px;
-      align-items: center;
-    }
-    .client-logo {
-      background: var(--white); border-radius: 12px; padding: 30px 20px; text-align: center;
-      box-shadow: var(--shadow); transition: var(--transition); min-height: 110px;
-      display: flex; align-items: center; justify-content: center;
-      filter: grayscale(100%); opacity: 0.7;
-    }
-    .client-logo:hover { filter: grayscale(0%); opacity: 1; transform: translateY(-5px); }
-    .client-logo span { font-weight: 700; color: var(--gray); font-size: 1.1rem; letter-spacing: 1px; }
-
-    /* ===== CONTACT / CTA ===== */
-    .contact { background: var(--white); }
-    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 50px; }
-    .contact-info h3 { font-size: 1.6rem; color: var(--green-primary); margin-bottom: 18px; font-weight: 700; }
-    .contact-info p { color: var(--gray); margin-bottom: 28px; }
-    .contact-item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-    .contact-item-icon {
-      width: 48px; height: 48px; border-radius: 12px; background: var(--green-primary);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .contact-item-icon svg { width: 24px; height: 24px; fill: var(--white); }
-    .contact-item strong { display: block; color: var(--gray-dark); font-weight: 600; }
-    .contact-item span { color: var(--gray); font-size: 0.92rem; }
-    .contact-form { background: var(--gray-light); padding: 36px; border-radius: var(--radius); box-shadow: var(--shadow); }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-dark); font-size: 0.92rem; }
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%; padding: 13px 16px; border: 1.5px solid var(--gray-border);
-      border-radius: 10px; font-family: inherit; font-size: 0.95rem; transition: var(--transition); background: var(--white);
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-      outline: none; border-color: var(--green-primary); box-shadow: 0 0 0 3px rgba(45,80,22,0.1);
-    }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-status { margin-top: 16px; padding: 12px; border-radius: 8px; font-size: 0.9rem; display: none; }
-    .form-status.success { display: block; background: #e3f3d8; color: var(--green-primary); }
-
-    /* ===== FOOTER ===== */
-    footer { background: var(--gray-dark); color: rgba(255,255,255,0.8); padding: 60px 0 0; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; padding-bottom: 40px; }
-    .footer-col h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 20px; font-weight: 600; }
-    .footer-col p { font-size: 0.9rem; margin-bottom: 16px; line-height: 1.7; }
-    .footer-col ul li { margin-bottom: 12px; }
-    .footer-col ul li a { font-size: 0.9rem; transition: var(--transition); }
-    .footer-col ul li a:hover { color: var(--yellow); padding-left: 5px; }
-    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-    .footer-logo strong { font-size: 1.4rem; font-weight: 800; color: var(--white); }
-    .footer-logo strong span { color: var(--yellow); }
-    .social-links { display: flex; gap: 12px; margin-top: 16px; }
-    .social-links a {
-      width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center; transition: var(--transition);
-    }
-    .social-links a:hover { background: var(--green-primary); transform: translateY(-3px); }
-    .social-links svg { width: 20px; height: 20px; fill: var(--white); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1); padding: 22px 0; text-align: center;
-      font-size: 0.85rem; color: rgba(255,255,255,0.6);
-    }
-    .footer-bottom a { color: var(--yellow); }
-
-    /* ===== WHATSAPP FLOAT ===== */
-    .whatsapp-float {
-      position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px;
-      background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 20px rgba(37,211,102,0.5); z-index: 999; transition: var(--transition);
-      animation: pulse 2s infinite;
-    }
-    .whatsapp-float:hover { transform: scale(1.1); }
-    .whatsapp-float svg { width: 32px; height: 32px; fill: var(--white); }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
-      70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-    }
-
-    /* ===== SCROLL ANIMATIONS ===== */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 992px) {
-      .services-grid, .why-grid, .how-steps { grid-template-columns: repeat(2, 1fr); }
-      .clients-grid { grid-template-columns: repeat(3, 1fr); }
-      .contact-wrap { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .hero h1 { font-size: 2.6rem; }
-    }
-    @media (max-width: 768px) {
-      .menu-toggle { display: flex; }
-      .nav-menu {
-        position: fixed; top: 78px; left: 0; width: 100%; height: calc(100vh - 78px);
-        background: var(--white); flex-direction: column; justify-content: flex-start;
-        padding: 40px 24px; gap: 24px; transform: translateX(-100%); transition: var(--transition);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
-      .nav-menu.active { transform: translateX(0); }
-      .nav-menu a { font-size: 1.1rem; }
-      .nav-cta { margin-left: 0; width: 100%; justify-content: center; }
-      .hero h1 { font-size: 2.2rem; }
-      .hero p { font-size: 1rem; }
-      .hero-stats { gap: 30px; }
-      .services-grid, .why-grid, .how-steps, .clients-grid { grid-template-columns: 1fr; }
-      .how-steps::before { display: none; }
-      .footer-grid { grid-template-columns: 1fr; }
-      section { padding: 60px 0; }
-      .section-title h2 { font-size: 1.9rem; }
-    }
-  </style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header id="header">
-    <div class="container">
-      <nav class="navbar">
-        <a href="#inicio" class="logo">
-          <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="24" r="11" fill="#f5c518"/>
-            <g stroke="#f5c518" stroke-width="3" stroke-linecap="round">
-              <line x1="32" y1="4" x2="32" y2="9"/>
-              <line x1="48" y1="8" x2="45" y2="12"/>
-              <line x1="16" y1="8" x2="19" y2="12"/>
-              <line x1="56" y1="24" x2="51" y2="24"/>
-              <line x1="8" y1="24" x2="13" y2="24"/>
-            </g>
-            <path d="M20 40 Q24 34 28 40 Q32 34 36 40 Q40 34 44 40 L44 50 Q44 56 32 56 Q20 56 20 50 Z" fill="#2d5016"/>
-            <rect x="26" y="44" width="12" height="8" rx="1" fill="#ffffff" stroke="#2b2b2b" stroke-width="1.5"/>
-            <circle cx="29" cy="48" r="1.2" fill="#2b2b2b"/>
-            <circle cx="35" cy="48" r="1.2" fill="#2b2b2b"/>
-          </svg>
-          <div class="logo-text">
-            <strong>SUMON<span>TEC</span></strong>
-            <small>Engenharia Especializada</small>
-          </div>
-        </a>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li><a href="#contato" class="btn btn-primary nav-cta">Solicitar Orçamento</a></li>
+  <!-- ============================= HEADER ============================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#inicio" class="logo" aria-label="SUMONTEC - Página inicial">
+        <img src="assets/img/logo-sumontec.png" alt="SUMONTEC - Serviços Especializados de Engenharia Ltda" class="logo-img" id="logoImg" />
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link">Início</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
         </ul>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-          <span></span><span></span><span></span>
-        </button>
       </nav>
+
+      <div class="header-cta">
+        <a href="#contato" class="btn btn-cta" id="ctaOrcamento">
+          <i class="fa-solid fa-file-invoice"></i>
+          <span>Solicitar Orçamento</span>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="inicio">
-    <div class="container">
-      <div class="hero-content reveal">
-        <span class="hero-badge">📍 Petrópolis-RJ • Atendimento em raio de 200km</span>
-        <h1>Engenharia, <span>projetos</span> e execução</h1>
-        <p>Soluções completas em estruturas metálicas, concreto armado, projetos elétricos e pisos industriais. Da concepção à entrega da obra, com qualidade e compromisso.</p>
-        <div class="hero-buttons">
-          <a href="https://wa.me/5524000000000?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn-yellow">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.8-1.2-4.4 0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.8 8.2-8.4 8.2z"/></svg>
-            Falar no WhatsApp
-          </a>
-          <a href="mailto:contato@sumontec.com.br" class="btn btn-outline">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Enviar E-mail
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><strong>+15</strong><span>Anos de experiência</span></div>
-          <div class="hero-stat"><strong>+200</strong><span>Projetos entregues</span></div>
-          <div class="hero-stat"><strong>200km</strong><span>Raio de atendimento</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ============================= MAIN ============================= -->
+  <main id="mainContent">
 
-  <!-- ===== SERVICES ===== -->
-  <section class="services" id="servicos">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Nossos Serviços</h2>
-        <p>Soluções completas em engenharia, do projeto à execução, com padrão de qualidade e segurança.</p>
-        <div class="divider"></div>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 21h18v-2H3v2zM5 10h2v7H5v-7zm4 0h2v7H9v-7zm4 0h2v7h-2v-7zm4 0h2v7h-2v-7zM3 6l9-4 9 4v2H3V6z"/></svg>
-          </div>
-          <h3>Projetos de Estruturas Metálicas</h3>
-          <p>Dimensionamento e detalhamento de estruturas metálicas para galpões, mezaninos, coberturas e edificações industriais e comerciais.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10c0 5.5 3.8 10 7.5 10h5C18.2 27 22 22.5 22 17V7L12 2zm0 4.5l7 3.1v6.4c0 4-2.8 7.5-5.5 7.5h-3C7.8 23.5 5 20 5 16V9.6l7-3.1z"/></svg>
-          </div>
-          <h3>Projetos de Concreto Armado</h3>
-          <p>Elaboração de projetos estruturais em concreto armado, com cálculo, detalhamento e memórias de cálculo conforme normas técnicas.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8H7z"/></svg>
-          </div>
-          <h3>Projetos Elétricos (Baixa Tensão)</h3>
-          <p>Projetos de instalações elétricas prediais e industriais em baixa tensão, com memorial, diagramas unifilares e quadros de distribuição.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
-          </div>
-          <h3>Projetos de Pisos Industriais</h3>
-          <p>Dimensionamento de pisos industriais com controle de juntas, cálculo de espessuras e especificação de materiais de alto desempenho.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
-          </div>
-          <h3>Fabricação e Montagem</h3>
-          <p>Fabricação e montagem de galpões e mezaninos em estrutura metálica, com equipe especializada e controle de qualidade em todas as etapas.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 17h18v2H3v-2zm0-4h18v2H3v-2zm0-4h18v2H3V9zm0-4h18v2H3V5z"/></svg>
-          </div>
-          <h3>Pisos Industriais (Implantação e Reforma)</h3>
-          <p>Execução de pisos industriais novos e reformas de pisos existentes, com tecnologias de alta resistência e durabilidade para ambientes pesados.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ===================== HERO + SERVICES LAYOUT ===================== -->
+    <section class="hero-layout" id="inicio">
 
-  <!-- ===== WHY US ===== -->
-  <section class="why" id="sobre">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Por que a SUMONTEC?</h2>
-        <p>Combinamos conhecimento técnico, equipe qualificada e compromisso real com prazos e resultados.</p>
-        <div class="divider"></div>
-      </div>
-      <div class="why-grid">
-        <div class="why-card reveal">
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-2 16l-4-4 1.4-1.4L10 14.2l6.6-6.6L18 9l-8 8z"/></svg>
-          </div>
-          <h3>Experiência e Qualidade</h3>
-          <p>Mais de 15 anos atuando em projetos e execuções de engenharia, seguindo rigorosamente as normas técnicas vigentes.</p>
+      <!-- LEFT PANEL: SERVICES GRID -->
+      <div class="left-panel" id="servicesPanel">
+        <div class="left-panel-header">
+          <span class="section-tag">Nossos Serviços</span>
+          <h2 class="section-title">Soluções completas em engenharia</h2>
+          <p class="section-subtitle">Selecione um serviço para ver detalhes, especificações e solicitar orçamento.</p>
         </div>
-        <div class="why-card reveal">
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3zM8 11c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3zm0 2c-2.3 0-7 1.2-7 3.5V19h14v-2.5C15 14.2 10.3 13 8 13zm8 0c-.3 0-.6 0-1 .1 1.2.8 2 1.9 2 3.4V19h6v-2.5c0-2.3-4.7-3.5-7-3.5z"/></svg>
-          </div>
-          <h3>Equipe Especializada</h3>
-          <p>Profissionais engenheiros e técnicos com formação sólida e experiência comprovada em obras de pequeno, médio e grande porte.</p>
-        </div>
-        <div class="why-card reveal">
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.1.8-1.3-4.5-2.7V7z"/></svg>
-          </div>
-          <h3>Compromisso com o Prazo</h3>
-          <p>Planejamento detalhado e cumprimento rigoroso de cronogramas, garantindo entregas no prazo combinado com o cliente.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section class="how">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Como Funciona</h2>
-        <p>Um processo simples e transparente para tirar seu projeto do papel com segurança.</p>
-        <div class="divider"></div>
-      </div>
-      <div class="how-steps">
-        <div class="step reveal">
-          <div class="step-number">1</div>
-          <h3>Solicite um Orçamento</h3>
-          <p>Entre em contato pelo WhatsApp, e-mail ou formulário. Conte sua necessidade e receba um atendimento rápido.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">2</div>
-          <h3>Análise e Planejamento</h3>
-          <p>Nossa equipe avalia o projeto, elabora propostas técnicas e planeja cada etapa com clareza e detalhamento.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">3</div>
-          <h3>Execução da Obra</h3>
-          <p>Realizamos a execução com equipe especializada, controle de qualidade e acompanhamento até a entrega final.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="services-grid" id="servicesGrid">
 
-  <!-- ===== PORTFOLIO / CLIENTS ===== -->
-  <section class="clients" id="portfolio">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Clientes e Parceiros</h2>
-        <p>Empresas que confiam no trabalho da SUMONTEC para seus projetos e obras.</p>
-        <div class="divider"></div>
-      </div>
-      <div class="clients-grid">
-        <div class="client-logo reveal"><span>EMPRESA A</span></div>
-        <div class="client-logo reveal"><span>EMPRESA B</span></div>
-        <div class="client-logo reveal"><span>EMPRESA C</span></div>
-        <div class="client-logo reveal"><span>EMPRESA D</span></div>
-        <div class="client-logo reveal"><span>EMPRESA E</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section class="contact" id="contato">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Solicite seu Orçamento</h2>
-        <p>Fale com nossa equipe e receba uma proposta personalizada para o seu projeto.</p>
-        <div class="divider"></div>
-      </div>
-      <div class="contact-wrap">
-        <div class="contact-info reveal">
-          <h3>Entre em contato</h3>
-          <p>Estamos prontos para atender você em Petrópolis e região, em um raio de até 200km. Fale conosco pelos canais abaixo ou preencha o formulário.</p>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
+          <!-- 1. Estruturas Metálicas -->
+          <article class="service-card fade-in-up" data-service-key="estruturas" data-service-index="0">
+            <div class="service-card-media">
+              <img src="assets/img/services/estruturas-metalicas.jpg" alt="Estruturas Metálicas SUMONTEC" loading="lazy" />
+              <span class="service-card-badge"><i class="fa-solid fa-industry"></i></span>
             </div>
-            <div><strong>Endereço</strong><span>Petrópolis - Rio de Janeiro, RJ</span></div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <div class="service-card-header">
+              <h3>Estruturas Metálicas</h3>
+              <p>Projeto, fabricação e montagem de estruturas em aço.</p>
             </div>
-            <div><strong>E-mail</strong><span>contato@sumontec.com.br</span></div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.1-.6-2.4-.6-3.6 0-.6-.5-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.5-.4-1-1-1z"/></svg>
+            <div class="service-card-details">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Galpões industriais</li>
+                <li><i class="fa-solid fa-check"></i> Mezaninos e passarelas</li>
+                <li><i class="fa-solid fa-check"></i> Coberturas e treliças</li>
+              </ul>
             </div>
-            <div><strong>Telefone / WhatsApp</strong><span>(24) 90000-0000</span></div>
-          </div>
-        </div>
-        <form class="contact-form reveal" id="contactForm" novalidate>
-          <div class="form-group">
-            <label for="name">Nome completo *</label>
-            <input type="text" id="name" name="name" placeholder="Seu nome" required />
-          </div>
-          <div class="form-group">
-            <label for="email">E-mail *</label>
-            <input type="email" id="email" name="email" placeholder="seu@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Telefone</label>
-            <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" />
-          </div>
-          <div class="form-group">
-            <label for="service">Serviço de interesse</label>
-            <select id="service" name="service">
-              <option value="">Selecione...</option>
-              <option>Estruturas Metálicas</option>
-              <option>Concreto Armado</option>
-              <option>Projetos Elétricos</option>
-              <option>Pisos Industriais</option>
-              <option>Fabricação e Montagem</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Mensagem *</label>
-            <textarea id="message" name="message" placeholder="Descreva seu projeto ou necessidade..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Enviar Mensagem</button>
-          <div class="form-status" id="formStatus"></div>
-        </form>
-      </div>
-    </div>
-  </section>
+            <button class="btn btn-outline service-card-btn" data-service-key="estruturas" data-service-index="0">
+              Ver menu <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </article>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
+          <!-- 2. Concreto Armado -->
+          <article class="service-card fade-in-up" data-service-key="projetos" data-service-index="1">
+            <div class="service-card-media">
+              <img src="assets/img/services/concreto-armado.jpg" alt="Concreto Armado SUMONTEC" loading="lazy" />
+              <span class="service-card-badge"><i class="fa-solid fa-hammer"></i></span>
+            </div>
+            <div class="service-card-header">
+              <h3>Concreto Armado</h3>
+              <p>Execução de estruturas em concreto armado e protendido.</p>
+            </div>
+            <div class="service-card-details">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Fundações e sapatas</li>
+                <li><i class="fa-solid fa-check"></i> Pilares e vigas</li>
+                <li><i class="fa-solid fa-check"></i> Lajes e reservatórios</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline service-card-btn" data-service-key="projetos" data-service-index="1">
+              Ver menu <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </article>
+
+          <!-- 3. Instalações Elétricas -->
+          <article class="service-card fade-in-up" data-service-key="projetos" data-service-index="2">
+            <div class="service-card-media">
+              <img src="assets/img/services/instalacoes-eletricas.jpg" alt="Instalações Elétricas SUMONTEC" loading="lazy" />
+              <span class="service-card-badge"><i class="fa-solid fa-bolt"></i></span>
+            </div>
+            <div class="service-card-header">
+              <h3>Instalações Elétricas</h3>
+              <p>Projetos e execução de sistemas elétricos prediais e industriais.</p>
+            </div>
+            <div class="service-card-details">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Quadros e distribuição</li>
+                <li><i class="fa-solid fa-check"></i> SPDA e aterramento</li>
+                <li><i class="fa-solid fa-check"></i> Iluminação industrial</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline service-card-btn" data-service-key="projetos" data-service-index="2">
+              Ver menu <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </article>
+
+          <!-- 4. Pisos Industriais -->
+          <article class="service-card fade-in-up" data-service-key="pisos" data-service-index="3">
+            <div class="service-card-media">
+              <img src="assets/img/services/pisos-industriais.jpg" alt="Pisos Industriais SUMONTEC" loading="lazy" />
+              <span class="service-card-badge"><i class="fa-solid fa-warehouse"></i></span>
+            </div>
+            <div class="service-card-header">
+              <h3>Pisos Industriais</h3>
+              <p>Pisos de alto desempenho para indústria e logística.</p>
+            </div>
+            <div class="service-card-details">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Pisos em concreto armado</li>
+                <li><i class="fa-solid fa-check"></i> Pavimentos de alta resistência</li>
+                <li><i class="fa-solid fa-check"></i> Juntas e tratamentos</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline service-card-btn" data-service-key="pisos" data-service-index="3">
+              Ver menu <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </article>
+
+          <!-- 5. Fabricação e Montagem -->
+          <article class="service-card fade-in-up" data-service-key="estruturas" data-service-index="4">
+            <div class="service-card-media">
+              <img src="assets/img/services/fabricacao-montagem.jpg" alt="Fabricação e Montagem SUMONTEC" loading="lazy" />
+              <span class="service-card-badge"><i class="fa-solid fa-gears"></i></span>
+            </div>
+            <div class="service-card-header">
+              <h3>Fabricação e Montagem</h3>
+              <p>Fabricação e montagem industrial de estruturas e componentes.</p>
+            </div>
+            <div class="service-card-details">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Usinagem e soldagem</li>
+                <li><i class="fa-solid fa-check"></i> Montagem em campo</li>
+                <li><i class="fa-solid fa-check"></i> Controle dimensional</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline service-card-btn" data-service-key="estruturas" data-service-index="4">
+              Ver menu <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </article>
+
+          <!-- 6. Pisos (Reforma) -->
+          <article class="service-card fade-in-up" data-service-key="pisos" data-service-index="5">
+                       <div class="service-card-media">
+              <img src="assets/img/services/pisos-reforma.jpg" alt="Pisos Reforma SUMONTEC" loading="lazy" />
+              <span class="service-card-badge"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+            </div>
+            <div class="service-card-header">
+              <h3>Pisos (Reforma)</h3>
+              <p>Recuperação e reforma de pisos existentes.</p>
+            </div>
+            <div class="service-card-details">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Reparo de trincas</li>
+                <li><i class="fa-solid fa-check"></i> Regularização de superfícies</li>
+                <li><i class="fa-solid fa-check"></i> Revestimentos especiais</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline service-card-btn" data-service-key="pisos" data-service-index="5">
+              Ver menu <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </article>
+
+          <!-- 7. Energia Fotovoltaica -->
+          <article class="service-card fade-in-up" data-service-key="energia" data-service-index="6">
+            <div class="service-card-media">
+              <img src="assets/img/services/energia-fotovoltaica.jpg" alt="Energia Fotovoltaica SUMONTEC" loading="lazy" />
+              <span class="service-card-badge"><i class="fa-solid fa-solar-panel"></i></span>
+            </div>
+            <div class="service-card-header">
+              <h3>Energia Fotovoltaica</h3>
+              <p>Projetos e instalação de sistemas de energia solar.</p>
+            </div>
+            <div class="service-card-details">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Sistemas grid-tie</li>
+                <li><i class="fa-solid fa-check"></i> Instalação e comissionamento</li>
+                <li><i class="fa-solid fa-check"></i> Monitoramento de geração</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline service-card-btn" data-service-key="energia" data-service-index="6">
+              Ver menu <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: HERO -->
+      <div class="right-panel" id="heroPanel">
+        <section class="hero-section" id="heroSection">
+          <div class="hero-content">
+            <span class="hero-badge" id="heroBadge">
+              <i class="fa-solid fa-location-dot"></i>
+              Petrópolis-RJ • Atendimento em raio de 200km
+            </span>
+
+            <h1 class="hero-title" id="heroTitle">
+              Engenharia, projetos e <span class="hero-highlight">execução</span>
+            </h1>
+
+            <p class="hero-subtitle" id="heroSubtitle">
+              A SUMONTEC é especializada em estruturas metálicas, concreto armado, pisos industriais
+              e soluções integradas de engenharia. Atuamos com excelência técnica, segurança e
+              compromisso com prazos em Petrópolis e região.
+            </p>
+
+            <div class="hero-cta" id="heroCta">
+              <a href="https://wa.me/5524000000000" class="btn btn-whatsapp" target="_blank" rel="noopener" id="ctaWhatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+              </a>
+              <a href="mailto:contato@sumontec.com.br" class="btn btn-email" id="ctaEmail">
+                <i class="fa-solid fa-envelope"></i>
+                <span>E-mail</span>
+              </a>
+            </div>
+
+            <div class="hero-stats" id="heroStats">
+              <div class="stat-item">
+                <span class="stat-number" data-count="15">+15</span>
+                <span class="stat-label">anos de experiência</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-count="200">+200</span>
+                <span class="stat-label">projetos entregues</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-count="200">200km</span>
+                <span class="stat-label">raio de atendimento</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </section>
+
+    <!-- ===================== POR QUE A SUMONTEC ===================== -->
+    <section class="why-section" id="sobre">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Diferenciais</span>
+          <h2 class="section-title">Por que a SUMONTEC?</h2>
+          <p class="section-subtitle">Razões que nos tornam referência em engenharia especializada.</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card fade-in-up">
+            <div class="why-card-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h3>Experiência</h3>
+            <p>Mais de 15 anos atuando em projetos e execuções de engenharia com padrão técnico elevado e histórico comprovado.</p>
+          </article>
+
+          <article class="why-card fade-in-up">
+            <div class="why-card-icon">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <h3>Equipe</h3>
+            <p>Profissionais qualificados, engenheiros e técnicos especializados para garantir qualidade em cada etapa.</p>
+          </article>
+
+          <article class="why-card fade-in-up">
+            <div class="why-card-icon">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <h3>Compromisso</h3>
+            <p>Cumprimos prazos, normas e orçamentos com transparência e responsabilidade em todos os projetos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COMO FUNCIONA ===================== -->
+    <section class="how-section" id="como-funciona">
+      <div class="container">
+        <div class="section-header section-header-light">
+          <span class="section-tag section-tag-light">Processo</span>
+          <h2 class="section-title">Como Funciona</h2>
+          <p class="section-subtitle">Um processo simples do primeiro contato à entrega final.</p>
+        </div>
+
+        <div class="how-grid">
+          <article class="how-step fade-in-up">
+            <div class="how-step-number">01</div>
+            <div class="how-step-icon"><i class="fa-solid fa-comments"></i></div>
+            <h3>Consulta e Levantamento</h3>
+            <p>Entendemos sua necessidade, visitamos o local e levantamos os requisitos técnicos do projeto.</p>
+          </article>
+
+          <article class="how-step fade-in-up">
+            <div class="how-step-number">02</div>
+            <div class="how-step-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+            <h3>Projeto e Proposta</h3>
+            <p>Elaboramos o projeto técnico e uma proposta detalhada com escopo, prazo e custo.</p>
+          </article>
+
+          <article class="how-step fade-in-up">
+            <div class="how-step-number">03</div>
+            <div class="how-step-icon"><i class="fa-solid fa-hard-hat"></i></div>
+            <h3>Execução e Entrega</h3>
+            <p>Executamos a obra com segurança, qualidade e acompanhamento técnico até a entrega final.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CARROSSEL DE CLIENTES ===================== -->
+    <section class="clients-section" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Portfólio</span>
+          <h2 class="section-title">Nossos Clientes</h2>
+          <p class="section-subtitle">Empresas que confiam no trabalho da SUMONTEC.</p>
+        </div>
+      </div>
+
+      <div class="clients-carousel" id="clientsCarousel">
+        <div class="clients-track" id="clientsTrack">
+          <div class="client-item"><img src="assets/img/clients/cliente-01.png" alt="Cliente 01" /></div>
+          <div class="client-item"><img src="assets/img/clients/cliente-02.png" alt="Cliente 02" /></div>
+          <div class="client-item"><img src="assets/img/clients/cliente-03.png" alt="Cliente 03" /></div>
+          <div class="client-item"><img src="assets/img/clients/cliente-04.png" alt="Cliente 04" /></div>
+          <div class="client-item"><img src="assets/img/clients/cliente-05.png" alt="Cliente 05" /></div>
+          <div class="client-item"><img src="assets/img/clients/cliente-06.png" alt="Cliente 06" /></div>
+          <!-- Duplicados para loop infinito -->
+          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-01.png" alt="" /></div>
+          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-02.png" alt="" /></div>
+          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-03.png" alt="" /></div>
+          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-04.png" alt="" /></div>
+          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-05.png" alt="" /></div>
+          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-06.png" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section class="contact-section" id="contato">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Contato</span>
+          <h2 class="section-title">Fale com a SUMONTEC</h2>
+          <p class="section-subtitle">Solicite seu orçamento ou tire dúvidas com nossa equipe.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <h4>Endereço</h4>
+                <p>Petrópolis - RJ, Brasil</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <h4>Telefone</h4>
+                <p><a href="tel:+5524000000000">+55 (24) 0000-0000</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <h4>E-mail</h4>
+                <p><a href="mailto:contato@sumontec.com.br">contato@sumontec.com.br</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <h4>WhatsApp</h4>
+                <p><a href="https://wa.me/5524000000000" target="_blank" rel="noopener">Chamar no WhatsApp</a></p>
+              </div>
+            </div>
+
+            <div class="contact-social">
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Nome completo</label>
+              <input type="text" id="name" name="name" placeholder="Seu nome" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefone</label>
+                <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Serviço de interesse</label>
+              <select id="service" name="service">
+                <option value="">Selecione um serviço</option>
+                <option value="estruturas">Estruturas Metálicas</option>
+                <option value="projetos">Concreto Armado</option>
+                <option value="eletrica">Instalações Elétricas</option>
+                <option value="pisos">Pisos Industriais</option>
+                <option value="montagem">Fabricação e Montagem</option>
+                <option value="reforma">Pisos (Reforma)</option>
+                <option value="energia">Energia Fotovoltaica</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensagem</label>
+              <textarea id="message" name="message" rows="5" placeholder="Descreva seu projeto ou necessidade..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="contactSubmit">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Enviar mensagem</span>
+            </button>
+
+            <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="site-footer" id="siteFooter">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">
-            <svg width="44" height="44" viewBox="0 0 64 64">
-              <circle cx="32" cy="24" r="11" fill="#f5c518"/>
-              <path d="M20 40 Q24 34 28 40 Q32 34 36 40 Q40 34 44 40 L44 50 Q44 56 32 56 Q20 56 20 50 Z" fill="#6fa83a"/>
-              <rect x="26" y="44" width="12" height="8" rx="1" fill="#ffffff" stroke="#fff" stroke-width="1.5"/>
-            </svg>
-            <strong>SUMON<span>TEC</span></strong>
-          </div>
-          <p>Serviços Especializados de Engenharia Ltda. Projetos e execução com qualidade, segurança e compromisso. Petrópolis-RJ e região.</p>
-          <div class="social-links">
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 9.9c-2.1 0-3.9-1.7-3.9-3.9s1.7-3.9 3.9-3.9 3.9 1.7 3.9 3.9-1.8 3.9-3.9 3.9zm6.2-7.1c0 .8-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4.6-1.4 1.4-1.4 1.4.6 1.4 1.4z"/></svg></a>
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12z"/></svg></a>
-            <a href="https://wa.me/5524000000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.8-1.2-4.4 0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.8 8.2-8.4 8.2z"/></svg></a>
-          </div>
+
+        <div class="footer-col footer-brand">
+          <img src="assets/img/logo-sumontec.png" alt="SUMONTEC" class="footer-logo" />
+          <p>SUMONTEC - Serviços Especializados de Engenharia Ltda.</p>
+          <p>Engenharia, projetos e execução em Petrópolis-RJ e região.</p>
         </div>
+
         <div class="footer-col">
           <h4>Navegação</h4>
           <ul>
@@ -619,119 +511,50 @@
             <li><a href="#contato">Contato</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
           <h4>Serviços</h4>
           <ul>
-            <li><a href="#servicos">Estruturas Metálicas</a></li>
-            <li><a href="#servicos">Concreto Armado</a></li>
-            <li><a href="#servicos">Projetos Elétricos</a></li>
-            <li><a href="#servicos">Pisos Industriais</a></li>
-            <li><a href="#servicos">Montagem</a></li>
+            <li><a href="#servicos" data-service-key="estruturas">Estruturas Metálicas</a></li>
+            <li><a href="#servicos" data-service-key="projetos">Concreto Armado</a></li>
+            <li><a href="#servicos" data-service-key="pisos">Pisos Industriais</a></li>
+            <li><a href="#servicos" data-service-key="energia">Energia Fotovoltaica</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
           <h4>Contato</h4>
           <ul>
-            <li><a href="mailto:contato@sumontec.com.br">contato@sumontec.com.br</a></li>
-            <li><a href="https://wa.me/5524000000000" target="_blank" rel="noopener">(24) 90000-0000</a></li>
-            <li><a href="#">Petrópolis - RJ</a></li>
-            <li><a href="#contato">Solicitar Orçamento</a></li>
+            <li><i class="fa-solid fa-location-dot"></i> Petrópolis - RJ</li>
+            <li><i class="fa-solid fa-phone"></i> <a href="tel:+5524000000000">+55 (24) 0000-0000</a></li>
+            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:contato@sumontec.com.br">contato@sumontec.com.br</a></li>
           </ul>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          </div>
         </div>
+
       </div>
+
       <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> SUMONTEC - Serviços Especializados de Engenharia Ltda. Todos os direitos reservados. | <a href="#inicio">Voltar ao topo</a></p>
+        <p>&copy; <span id="currentYear">2025</span> SUMONTEC - Serviços Especializados de Engenharia Ltda. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ===== WHATSAPP FLOAT ===== -->
-  <a href="https://wa.me/5524000000000?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.8-1.2-4.4 0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.8 8.2-8.4 8.2z"/></svg>
+  <!-- Botão flutuante WhatsApp -->
+  <a href="https://wa.me/5524000000000" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <script>
-    // ===== MOBILE MENU =====
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    });
+  <!-- Botão voltar ao topo -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-    // ===== HEADER SHADOW ON SCROLL =====
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.12)';
-      } else {
-        header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.06)';
-      }
-    });
-
-    // ===== SMOOTH SCROLL (fallback for older browsers) =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const offset = 80;
-          const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top: pos, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // ===== SCROLL REVEAL ANIMATIONS =====
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-    revealElements.forEach(el => observer.observe(el));
-
-    // ===== CONTACT FORM =====
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatus');
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if (!name || !email || !message) {
-        formStatus.style.display = 'block';
-        formStatus.className = 'form-status';
-        formStatus.style.background = '#fde8e8';
-        formStatus.style.color = '#c0392b';
-        formStatus.textContent = 'Por favor, preencha os campos obrigatórios.';
-        return;
-      }
-      const phone = document.getElementById('phone').value.trim();
-      const service = document.getElementById('service').value;
-      const text = `Olá! Gostaria de solicitar um orçamento.%0A%0A*Nome:* ${name}%0A*E-mail:* ${email}%0A*Telefone:* ${phone || 'Não informado'}%0A*Serviço:* ${service || 'Não informado'}%0A*Mensagem:* ${message}`;
-      const whatsappUrl = `https://wa.me/5524000000000?text=${encodeURIComponent(text).replace(/%2520/g, '%20')}`;
-      formStatus.style.display = 'block';
-      formStatus.className = 'form-status success';
-      formStatus.textContent = 'Mensagem preparada! Você será redirecionado para o WhatsApp...';
-      setTimeout(() => {
-        window.open(whatsappUrl, '_blank');
-        contactForm.reset();
-        setTimeout(() => { formStatus.style.display = 'none'; }, 4000);
-      }, 1200);
-    });
-
-    // ===== CURRENT YEAR =====
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
 </body>
 </html>
