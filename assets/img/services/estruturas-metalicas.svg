@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#166534"/>
+      <stop offset="1" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg1)"/>
+  <g stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M210 250 L300 170 L390 250"/><path d="M210 250 L210 300"/>
+    <path d="M390 250 L390 300"/><path d="M300 170 L300 300"/>
+    <path d="M210 250 L390 250"/><path d="M210 300 L390 300"/>
+    <path d="M210 250 L300 300"/><path d="M390 250 L300 300"/>
+    <path d="M210 300 L300 250"/><path d="M390 300 L300 250"/>
+  </g>
+  <text x="300" y="340" text-anchor="middle" font-family="Arial" font-size="30" 
+        font-weight="bold" fill="#FFFFFF">Estruturas Metálicas</text>
+  <text x="300" y="370" text-anchor="middle" font-family="Arial" font-size="16" 
+        fill="#BBF7D0">Projeto, fabricação e montagem</text>
+</svg>
