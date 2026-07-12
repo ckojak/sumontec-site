@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#166534"/><stop offset="1" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg5)"/>
+  <g transform="translate(300,135)">
+    <path d="M0 -70 L12 -64 L10 -50 L24 -42 L34 -52 L44 -42 L34 -28 L42 -14 L56 -16 L60 -4 
+             L48 6 L56 20 L42 28 L34 16 L20 22 L22 36 L8 40 L2 28 L-2 28 L-8 40 L-22 36 L-20 22 
+             L-34 16 L-42 28 L-56 20 L-48 6 L-60 -4 L-56 -16 L-42 -14 L-34 -28 L-44 -42 L-34 -52 
+             L-24 -42 L-10 -50 L-12 -64 Z" 
+          fill="#FFFFFF" fill-opacity="0.9" stroke="#FFFFFF" stroke-width="3"/>
+    <circle r="22" fill="#15803D" stroke="#FFFFFF" stroke-width="5"/>
+  </g>
+  <text x="300" y="255" text-anchor="middle" font-family="Arial" font-size="28" 
+        font-weight="bold" fill="#FFFFFF">Fabricação e Montagem</text>
+  <text x="300" y="285" text-anchor="middle" font-family="Arial" font-size="16" 
+        fill="#BBF7D0">Galpões e mezaninos</text>
+</svg>
