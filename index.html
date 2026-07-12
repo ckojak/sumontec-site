@@ -1,560 +1,337 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRUPO SUMONTEC - Serviços Especializados de Engenharia Ltda</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+  :root {
+    --verde-principal: #15803D;
+    --verde-escuro: #166534;
+    --verde-claro: #22C55E;
+    --laranja: #F97316;
+    --cinza-fundo: #F8FAFC;
+    --cinza-texto: #475569;
+    --branco: #FFFFFF;
+  }
+  body { background: var(--cinza-fundo); color: var(--cinza-texto); }
 
-  <!-- SEO Meta Tags -->
-  <title>SUMONTEC - Serviços Especializados de Engenharia Ltda | Estruturas Metálicas, Concreto Armado e Pisos Industriais</title>
-  <meta name="description" content="SUMONTEC - Serviços Especializados de Engenharia Ltda. Estruturas metálicas, concreto armado, pisos industriais, instalações elétricas e energia fotovoltaica em Petrópolis-RJ e região." />
-  <meta name="keywords" content="engenharia, estruturas metálicas, concreto armado, pisos industriais, instalações elétricas, energia fotovoltaica, Petrópolis, SUMONTEC" />
-  <meta name="author" content="SUMONTEC - Serviços Especializados de Engenharia Ltda" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0f7a3d" />
+  /* HEADER */
+  header {
+    background: var(--branco);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo-icon {
+    width: 44px; height: 44px;
+    background: var(--verde-principal);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-text h1 { font-size: 20px; color: var(--verde-principal); font-weight: 800; letter-spacing: 1px; }
+  .logo-text p { font-size: 12px; color: var(--cinza-texto); }
+  nav { display: flex; align-items: center; gap: 24px; }
+  nav a { text-decoration: none; color: var(--cinza-texto); font-weight: 600; font-size: 14px; transition: color .2s; }
+  nav a:hover { color: var(--verde-principal); }
+  .btn-orcamento {
+    background: var(--verde-principal);
+    color: var(--branco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .btn-orcamento:hover { background: var(--verde-escuro); }
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="SUMONTEC - Serviços Especializados de Engenharia Ltda" />
-  <meta property="og:description" content="Engenharia, projetos e execução em Petrópolis-RJ. Estruturas metálicas, concreto armado, pisos industriais e mais." />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:site_name" content="SUMONTEC" />
+  /* SERVIÇOS */
+  .servicos { padding: 50px 40px; }
+  .servicos h2 { text-align: center; color: var(--verde-principal); font-size: 28px; margin-bottom: 30px; }
+  .cards { display: flex; gap: 18px; justify-content: center; flex-wrap: nowrap; overflow: hidden; }
+  .card {
+    background: var(--branco);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    width: 220px;
+    flex: 0 0 220px;
+    overflow: hidden;
+    transition: transform .35s ease, box-shadow .35s ease;
+    position: relative;
+  }
+  .card:hover { transform: scale(1.3); box-shadow: 0 12px 30px rgba(0,0,0,0.2); z-index: 10; }
+  .card-img { height: 130px; display: flex; align-items: center; justify-content: center; }
+  .card-body { padding: 14px; text-align: center; position: relative; }
+  .card-body h3 { font-size: 15px; color: var(--verde-principal); margin-bottom: 8px; }
+  .badge {
+    display: inline-block;
+    background: var(--laranja);
+    color: var(--branco);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  /* AVATAR + CARROSSEL */
+  .secao-clientes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    background: var(--branco);
+    margin: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .avatar-area { flex: 0 0 220px; position: relative; }
+  .avatar-svg { width: 180px; height: 200px; }
+  .balao {
+    position: relative;
+    background: var(--verde-claro);
+    color: var(--branco);
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .balao::after {
+    content: '';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 14px solid var(--verde-claro);
+  }
+  .seta-manual {
+    position: absolute;
+    right: -10px;
+    bottom: 10px;
+    color: var(--verde-principal);
+    font-size: 28px;
+    font-weight: 900;
+    transform: rotate(-20deg);
+  }
 
-  <!-- Google Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  .carrossel-wrap { flex: 1; }
+  .carrossel-wrap h2 { color: var(--verde-principal); margin-bottom: 18px; font-size: 24px; }
+  .carrossel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+  }
+  .carrossel-track {
+    display: flex;
+    gap: 16px;
+    transition: transform .4s ease;
+  }
+  .cliente-card {
+    flex: 0 0 140px;
+    height: 90px;
+    background: var(--cinza-fundo);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    transition: filter .3s, transform .3s;
+  }
+  .cliente-card:hover { filter: grayscale(0%); transform: translateY(-4px); }
+  .cliente-card svg { width: 90px; height: 60px; }
+  .nav-btn {
+    background: var(--verde-principal);
+    color: var(--branco);
+    border: none;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-btn:hover { background: var(--verde-escuro); }
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  /* FOOTER */
+  footer {
+    background: var(--verde-escuro);
+    color: var(--branco);
+    padding: 30px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer h3 { color: var(--verde-claro); margin-bottom: 8px; }
+  footer a { color: var(--branco); text-decoration: none; margin-right: 8px; }
+  footer a:hover { text-decoration: underline; }
+  .footer-contato p { margin: 4px 0; font-size: 14px; }
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
+  @media (max-width: 900px) {
+    .cards { flex-wrap: wrap; justify-content: center; }
+    .card { flex: 0 0 45%; width: 45%; }
+    .secao-clientes { flex-direction: column; }
+    nav { display: none; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- ============================= HEADER ============================= -->
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a href="#inicio" class="logo" aria-label="SUMONTEC - Página inicial">
-        <img src="assets/img/logo-sumontec.png" alt="SUMONTEC - Serviços Especializados de Engenharia Ltda" class="logo-img" id="logoImg" />
-      </a>
-
-      <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
-        <ul class="nav-list">
-          <li><a href="#inicio" class="nav-link">Início</a></li>
-          <li><a href="#servicos" class="nav-link">Serviços</a></li>
-          <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-cta">
-        <a href="#contato" class="btn btn-cta" id="ctaOrcamento">
-          <i class="fa-solid fa-file-invoice"></i>
-          <span>Solicitar Orçamento</span>
-        </a>
-      </div>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+<header>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
-  </header>
+    <div class="logo-text">
+      <h1>GRUPO SUMONTEC</h1>
+      <p>Serviços Especializados de Engenharia Ltda</p>
+    </div>
+  </div>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+    <button class="btn-orcamento" onclick="solicitarOrcamento()">Solicitar orçamento</button>
+  </nav>
+</header>
 
-  <!-- ============================= MAIN ============================= -->
-  <main id="mainContent">
-
-    <!-- ===================== HERO + SERVICES LAYOUT ===================== -->
-    <section class="hero-layout" id="inicio">
-
-      <!-- LEFT PANEL: SERVICES GRID -->
-      <div class="left-panel" id="servicesPanel">
-        <div class="left-panel-header">
-          <span class="section-tag">Nossos Serviços</span>
-          <h2 class="section-title">Soluções completas em engenharia</h2>
-          <p class="section-subtitle">Selecione um serviço para ver detalhes, especificações e solicitar orçamento.</p>
-        </div>
-
-        <div class="services-grid" id="servicesGrid">
-
-          <!-- 1. Estruturas Metálicas -->
-          <article class="service-card fade-in-up" data-service-key="estruturas" data-service-index="0">
-            <div class="service-card-media">
-              <img src="assets/img/services/estruturas-metalicas.svg" alt="Estruturas Metálicas SUMONTEC" loading="lazy" />
-              <span class="service-card-badge"><i class="fa-solid fa-industry"></i></span>
-            </div>
-            <div class="service-card-header">
-              <h3>Estruturas Metálicas</h3>
-              <p>Projeto, fabricação e montagem de estruturas em aço.</p>
-            </div>
-            <div class="service-card-details">
-              <ul>
-                <li><i class="fa-solid fa-check"></i> Galpões industriais</li>
-                <li><i class="fa-solid fa-check"></i> Mezaninos e passarelas</li>
-                <li><i class="fa-solid fa-check"></i> Coberturas e treliças</li>
-              </ul>
-            </div>
-            <button class="btn btn-outline service-card-btn" data-service-key="estruturas" data-service-index="0">
-              Ver menu <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </article>
-
-          <!-- 2. Concreto Armado -->
-          <article class="service-card fade-in-up" data-service-key="projetos" data-service-index="1">
-            <div class="service-card-media">
-              <img src="assets/img/services/concreto-armado.svg" alt="Concreto Armado SUMONTEC" loading="lazy" />
-              <span class="service-card-badge"><i class="fa-solid fa-hammer"></i></span>
-            </div>
-            <div class="service-card-header">
-              <h3>Concreto Armado</h3>
-              <p>Execução de estruturas em concreto armado e protendido.</p>
-            </div>
-            <div class="service-card-details">
-              <ul>
-                <li><i class="fa-solid fa-check"></i> Fundações e sapatas</li>
-                <li><i class="fa-solid fa-check"></i> Pilares e vigas</li>
-                <li><i class="fa-solid fa-check"></i> Lajes e reservatórios</li>
-              </ul>
-            </div>
-            <button class="btn btn-outline service-card-btn" data-service-key="projetos" data-service-index="1">
-              Ver menu <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </article>
-
-          <!-- 3. Instalações Elétricas -->
-          <article class="service-card fade-in-up" data-service-key="projetos" data-service-index="2">
-            <div class="service-card-media">
-              <img src="assets/img/services/instalacoes-eletricas.svg" alt="Instalações Elétricas SUMONTEC" loading="lazy" />
-              <span class="service-card-badge"><i class="fa-solid fa-bolt"></i></span>
-            </div>
-            <div class="service-card-header">
-              <h3>Instalações Elétricas</h3>
-              <p>Projetos e execução de sistemas elétricos prediais e industriais.</p>
-            </div>
-            <div class="service-card-details">
-              <ul>
-                <li><i class="fa-solid fa-check"></i> Quadros e distribuição</li>
-                <li><i class="fa-solid fa-check"></i> SPDA e aterramento</li>
-                <li><i class="fa-solid fa-check"></i> Iluminação industrial</li>
-              </ul>
-            </div>
-            <button class="btn btn-outline service-card-btn" data-service-key="projetos" data-service-index="2">
-              Ver menu <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </article>
-
-          <!-- 4. Pisos Industriais -->
-          <article class="service-card fade-in-up" data-service-key="pisos" data-service-index="3">
-            <div class="service-card-media">
-              <img src="assets/img/services/pisos-industriais.svg" alt="Pisos Industriais SUMONTEC" loading="lazy" />
-              <span class="service-card-badge"><i class="fa-solid fa-warehouse"></i></span>
-            </div>
-            <div class="service-card-header">
-              <h3>Pisos Industriais</h3>
-              <p>Pisos de alto desempenho para indústria e logística.</p>
-            </div>
-            <div class="service-card-details">
-              <ul>
-                <li><i class="fa-solid fa-check"></i> Pisos em concreto armado</li>
-                <li><i class="fa-solid fa-check"></i> Pavimentos de alta resistência</li>
-                <li><i class="fa-solid fa-check"></i> Juntas e tratamentos</li>
-              </ul>
-            </div>
-            <button class="btn btn-outline service-card-btn" data-service-key="pisos" data-service-index="3">
-              Ver menu <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </article>
-
-          <!-- 5. Fabricação e Montagem -->
-          <article class="service-card fade-in-up" data-service-key="estruturas" data-service-index="4">
-            <div class="service-card-media">
-              <img src="assets/img/services/fabricacao-montagem.svg" alt="Fabricação e Montagem SUMONTEC" loading="lazy" />
-              <span class="service-card-badge"><i class="fa-solid fa-gears"></i></span>
-            </div>
-            <div class="service-card-header">
-              <h3>Fabricação e Montagem</h3>
-              <p>Fabricação e montagem industrial de estruturas e componentes.</p>
-            </div>
-            <div class="service-card-details">
-              <ul>
-                <li><i class="fa-solid fa-check"></i> Usinagem e soldagem</li>
-                <li><i class="fa-solid fa-check"></i> Montagem em campo</li>
-                <li><i class="fa-solid fa-check"></i> Controle dimensional</li>
-              </ul>
-            </div>
-            <button class="btn btn-outline service-card-btn" data-service-key="estruturas" data-service-index="4">
-              Ver menu <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </article>
-
-          <!-- 6. Pisos (Reforma) -->
-          <article class="service-card fade-in-up" data-service-key="pisos" data-service-index="5">
-                       <div class="service-card-media">
-              <img src="assets/img/services/pisos-reforma.svg" alt="Pisos Reforma SUMONTEC" loading="lazy" />
-              <span class="service-card-badge"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-            </div>
-            <div class="service-card-header">
-              <h3>Pisos (Reforma)</h3>
-              <p>Recuperação e reforma de pisos existentes.</p>
-            </div>
-            <div class="service-card-details">
-              <ul>
-                <li><i class="fa-solid fa-check"></i> Reparo de trincas</li>
-                <li><i class="fa-solid fa-check"></i> Regularização de superfícies</li>
-                <li><i class="fa-solid fa-check"></i> Revestimentos especiais</li>
-              </ul>
-            </div>
-            <button class="btn btn-outline service-card-btn" data-service-key="pisos" data-service-index="5">
-              Ver menu <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </article>
-
-          <!-- 7. Energia Fotovoltaica -->
-          <article class="service-card fade-in-up" data-service-key="energia" data-service-index="6">
-            <div class="service-card-media">
-              <img src="assets/img/services/energia-fotovoltaica.svg" alt="Energia Fotovoltaica SUMONTEC" loading="lazy" />
-              <span class="service-card-badge"><i class="fa-solid fa-solar-panel"></i></span>
-            </div>
-            <div class="service-card-header">
-              <h3>Energia Fotovoltaica</h3>
-              <p>Projetos e instalação de sistemas de energia solar.</p>
-            </div>
-            <div class="service-card-details">
-              <ul>
-                <li><i class="fa-solid fa-check"></i> Sistemas grid-tie</li>
-                <li><i class="fa-solid fa-check"></i> Instalação e comissionamento</li>
-                <li><i class="fa-solid fa-check"></i> Monitoramento de geração</li>
-              </ul>
-            </div>
-            <button class="btn btn-outline service-card-btn" data-service-key="energia" data-service-index="6">
-              Ver menu <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </article>
-
-        </div>
+<section class="servicos" id="servicos">
+  <h2>Nossos Serviços</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#15803D,#22C55E);">
+        <svg width="90" height="90" viewBox="0 0 100 100"><rect x="20" y="40" width="60" height="40" fill="white" opacity=".9"/><rect x="30" y="25" width="40" height="20" fill="white" opacity=".7"/><line x1="50" y1="10" x2="50" y2="25" stroke="white" stroke-width="3"/></svg>
       </div>
-
-      <!-- RIGHT PANEL: HERO -->
-      <div class="right-panel" id="heroPanel">
-        <section class="hero-section" id="heroSection">
-          <div class="hero-content">
-            <span class="hero-badge" id="heroBadge">
-              <i class="fa-solid fa-location-dot"></i>
-              Petrópolis-RJ • Atendimento em raio de 200km
-            </span>
-
-            <h1 class="hero-title" id="heroTitle">
-              Engenharia, projetos e <span class="hero-highlight">execução</span>
-            </h1>
-
-            <p class="hero-subtitle" id="heroSubtitle">
-              A SUMONTEC é especializada em estruturas metálicas, concreto armado, pisos industriais
-              e soluções integradas de engenharia. Atuamos com excelência técnica, segurança e
-              compromisso com prazos em Petrópolis e região.
-            </p>
-
-            <div class="hero-cta" id="heroCta">
-              <a href="https://wa.me/5524988238084" class="btn btn-whatsapp" target="_blank" rel="noopener" id="ctaWhatsapp">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>WhatsApp</span>
-              </a>
-              <a href="mailto:sumontec@yahoo.com" class="btn btn-email" id="ctaEmail">
-                <i class="fa-solid fa-envelope"></i>
-                <span>E-mail</span>
-              </a>
-            </div>
-
-            <div class="hero-stats" id="heroStats">
-              <div class="stat-item">
-                <span class="stat-number" data-count="15">+15</span>
-                <span class="stat-label">anos de experiência</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number" data-count="200">+200</span>
-                <span class="stat-label">projetos entregues</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number" data-count="200">200km</span>
-                <span class="stat-label">raio de atendimento</span>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-    </section>
-
-    <!-- ===================== POR QUE A SUMONTEC ===================== -->
-    <section class="why-section" id="sobre">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Diferenciais</span>
-          <h2 class="section-title">Por que a SUMONTEC?</h2>
-          <p class="section-subtitle">Razões que nos tornam referência em engenharia especializada.</p>
-        </div>
-
-        <div class="why-grid">
-          <article class="why-card fade-in-up">
-            <div class="why-card-icon">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <h3>Experiência</h3>
-            <p>Mais de 15 anos atuando em projetos e execuções de engenharia com padrão técnico elevado e histórico comprovado.</p>
-          </article>
-
-          <article class="why-card fade-in-up">
-            <div class="why-card-icon">
-              <i class="fa-solid fa-users-gear"></i>
-            </div>
-            <h3>Equipe</h3>
-            <p>Profissionais qualificados, engenheiros e técnicos especializados para garantir qualidade em cada etapa.</p>
-          </article>
-
-          <article class="why-card fade-in-up">
-            <div class="why-card-icon">
-              <i class="fa-solid fa-handshake"></i>
-            </div>
-            <h3>Compromisso</h3>
-            <p>Cumprimos prazos, normas e orçamentos com transparência e responsabilidade em todos os projetos.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== COMO FUNCIONA ===================== -->
-    <section class="how-section" id="como-funciona">
-      <div class="container">
-        <div class="section-header section-header-light">
-          <span class="section-tag section-tag-light">Processo</span>
-          <h2 class="section-title">Como Funciona</h2>
-          <p class="section-subtitle">Um processo simples do primeiro contato à entrega final.</p>
-        </div>
-
-        <div class="how-grid">
-          <article class="how-step fade-in-up">
-            <div class="how-step-number">01</div>
-            <div class="how-step-icon"><i class="fa-solid fa-comments"></i></div>
-            <h3>Consulta e Levantamento</h3>
-            <p>Entendemos sua necessidade, visitamos o local e levantamos os requisitos técnicos do projeto.</p>
-          </article>
-
-          <article class="how-step fade-in-up">
-            <div class="how-step-number">02</div>
-            <div class="how-step-icon"><i class="fa-solid fa-drafting-compass"></i></div>
-            <h3>Projeto e Proposta</h3>
-            <p>Elaboramos o projeto técnico e uma proposta detalhada com escopo, prazo e custo.</p>
-          </article>
-
-          <article class="how-step fade-in-up">
-            <div class="how-step-number">03</div>
-            <div class="how-step-icon"><i class="fa-solid fa-hard-hat"></i></div>
-            <h3>Execução e Entrega</h3>
-            <p>Executamos a obra com segurança, qualidade e acompanhamento técnico até a entrega final.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CARROSSEL DE CLIENTES ===================== -->
-    <section class="clients-section" id="portfolio">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Portfólio</span>
-          <h2 class="section-title">Nossos Clientes</h2>
-          <p class="section-subtitle">Empresas que confiam no trabalho da SUMONTEC.</p>
-        </div>
-      </div>
-
-      <div class="clients-carousel" id="clientsCarousel">
-        <div class="clients-track" id="clientsTrack">
-          <div class="client-item"><img src="assets/img/clients/cliente-01.png" alt="Cliente 01" /></div>
-          <div class="client-item"><img src="assets/img/clients/cliente-02.png" alt="Cliente 02" /></div>
-          <div class="client-item"><img src="assets/img/clients/cliente-03.png" alt="Cliente 03" /></div>
-          <div class="client-item"><img src="assets/img/clients/cliente-04.png" alt="Cliente 04" /></div>
-          <div class="client-item"><img src="assets/img/clients/cliente-05.png" alt="Cliente 05" /></div>
-          <div class="client-item"><img src="assets/img/clients/cliente-06.png" alt="Cliente 06" /></div>
-          <!-- Duplicados para loop infinito -->
-          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-01.png" alt="" /></div>
-          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-02.png" alt="" /></div>
-          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-03.png" alt="" /></div>
-          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-04.png" alt="" /></div>
-          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-05.png" alt="" /></div>
-          <div class="client-item" aria-hidden="true"><img src="assets/img/clients/cliente-06.png" alt="" /></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CONTATO ===================== -->
-    <section class="contact-section" id="contato">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Contato</span>
-          <h2 class="section-title">Fale com a SUMONTEC</h2>
-          <p class="section-subtitle">Solicite seu orçamento ou tire dúvidas com nossa equipe.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info">
-            <div class="contact-info-item">
-              <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
-              <div>
-                <h4>Endereço</h4>
-                <p>Petrópolis - RJ, Brasil</p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
-              <div>
-                <h4>Telefone</h4>
-                <p><a href="tel:+5524000000000">+55 (24) 0000-0000</a></p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
-              <div>
-                <h4>E-mail</h4>
-                <p><a href="mailto:contato@sumontec.com.br">contato@sumontec.com.br</a></p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-icon"><i class="fa-brands fa-whatsapp"></i></div>
-              <div>
-                <h4>WhatsApp</h4>
-                <p><a href="https://wa.me/5524000000000" target="_blank" rel="noopener">Chamar no WhatsApp</a></p>
-              </div>
-            </div>
-
-            <div class="contact-social">
-              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            </div>
-          </div>
-
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-group">
-              <label for="name">Nome completo</label>
-              <input type="text" id="name" name="name" placeholder="Seu nome" required />
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Telefone</label>
-                <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="service">Serviço de interesse</label>
-              <select id="service" name="service">
-                <option value="">Selecione um serviço</option>
-                <option value="estruturas">Estruturas Metálicas</option>
-                <option value="projetos">Concreto Armado</option>
-                <option value="eletrica">Instalações Elétricas</option>
-                <option value="pisos">Pisos Industriais</option>
-                <option value="montagem">Fabricação e Montagem</option>
-                <option value="reforma">Pisos (Reforma)</option>
-                <option value="energia">Energia Fotovoltaica</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Mensagem</label>
-              <textarea id="message" name="message" rows="5" placeholder="Descreva seu projeto ou necessidade..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block" id="contactSubmit">
-              <i class="fa-solid fa-paper-plane"></i>
-              <span>Enviar mensagem</span>
-            </button>
-
-            <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============================= FOOTER ============================= -->
-  <footer class="site-footer" id="siteFooter">
-    <div class="container">
-      <div class="footer-grid">
-
-        <div class="footer-col footer-brand">
-          <img src="assets/img/logo-sumontec.png" alt="SUMONTEC" class="footer-logo" />
-          <p>SUMONTEC - Serviços Especializados de Engenharia Ltda.</p>
-          <p>Engenharia, projetos e execução em Petrópolis-RJ e região.</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Navegação</h4>
-          <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#portfolio">Portfólio</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Serviços</h4>
-          <ul>
-            <li><a href="#servicos" data-service-key="estruturas">Estruturas Metálicas</a></li>
-            <li><a href="#servicos" data-service-key="projetos">Concreto Armado</a></li>
-            <li><a href="#servicos" data-service-key="pisos">Pisos Industriais</a></li>
-            <li><a href="#servicos" data-service-key="energia">Energia Fotovoltaica</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contato</h4>
-          <ul>
-            <li><i class="fa-solid fa-location-dot"></i> Petrópolis - RJ</li>
-            <li><i class="fa-solid fa-phone"></i> <a href="tel:+5524000000000">+55 (24) 0000-0000</a></li>
-            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:contato@sumontec.com.br">contato@sumontec.com.br</a></li>
-          </ul>
-          <div class="footer-social">
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; <span id="currentYear">2025</span> SUMONTEC - Serviços Especializados de Engenharia Ltda. Todos os direitos reservados.</p>
+      <div class="card-body">
+        <h3>Estruturas Metálicas</h3>
+        <span class="badge">EXPANDE 30%</span>
       </div>
     </div>
-  </footer>
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#475569,#94A3B8);">
+        <svg width="90" height="90" viewBox="0 0 100 100"><rect x="15" y="55" width="70" height="25" fill="white" opacity=".9"/><rect x="20" y="45" width="60" height="12" fill="white" opacity=".7"/><line x1="25" y1="55" x2="25" y2="80" stroke="#475569" stroke-width="2"/><line x1="50" y1="55" x2="50" y2="80" stroke="#475569" stroke-width="2"/><line x1="75" y1="55" x2="75" y2="80" stroke="#475569" stroke-width="2"/></svg>
+      </div>
+      <div class="card-body">
+        <h3>Pisos Industriais</h3>
+        <span class="badge">EXPANDE 30%</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#0EA5E9,#38BDF8);">
+        <svg width="90" height="90" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="50" fill="none" stroke="white" stroke-width="3"/><line x1="20" y1="35" x2="80" y2="35" stroke="white" stroke-width="2"/><line x1="40" y1="20" x2="40" y2="70" stroke="white" stroke-width="2"/><line x1="60" y1="20" x2="60" y2="70" stroke="white" stroke-width="2"/></svg>
+      </div>
+      <div class="card-body">
+        <h3>Projetos</h3>
+        <span class="badge">EXPANDE 30%</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#F59E0B,#FBBF24);">
+        <svg width="90" height="90" viewBox="0 0 100 100"><circle cx="50" cy="50" r="18" fill="white" opacity=".9"/><g stroke="white" stroke-width="3"><line x1="50" y1="15" x2="50" y2="28"/><line x1="50" y1="72" x2="50" y2="85"/><line x1="15" y1="50" x2="28" y2="50"/><line x1="72" y1="50" x2="85" y2="50"/><line x1="25" y1="25" x2="34" y2="34"/><line x1="66" y1="66" x2="75" y2="75"/><line x1="75" y1="25" x2="66" y2="34"/><line x1="34" y1="66" x2="25" y2="75"/></g></svg>
+      </div>
+      <div class="card-body">
+        <h3>Energia Fotovoltaica</h3>
+        <span class="badge">EXPANDE 30%</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#7C3AED,#A78BFA);">
+        <svg width="90" height="90" viewBox="0 0 100 100"><rect x="25" y="35" width="50" height="45" fill="white" opacity=".9"/><polygon points="25,35 50,15 75,35" fill="white" opacity=".7"/><rect x="42" y="55" width="16" height="25" fill="#7C3AED"/></svg>
+      </div>
+      <div class="card-body">
+        <h3>Incorporações</h3>
+        <span class="badge">EXPANDE 30%</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Botão flutuante WhatsApp -->
-  <a href="https://wa.me/5524000000000" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+<section class="secao-clientes">
+  <div class="avatar-area">
+    <div class="balao">Sejam bem vindos a SUMONTEC - Serviços especializados de engenharia Ltda</div>
+    <svg class="avatar-svg" viewBox="0 0 180 200">
+      <!-- capacete -->
+      <path d="M55 70 Q90 30 125 70 L125 78 L55 78 Z" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="2"/>
+      <rect x="50" y="76" width="80" height="8" rx="4" fill="#D1D5DB"/>
+      <rect x="82" y="40" width="16" height="10" fill="#F97316"/>
+      <!-- rosto -->
+      <circle cx="90" cy="95" r="22" fill="#FCD9B6"/>
+      <circle cx="82" cy="92" r="2.5" fill="#333"/>
+      <circle cx="98" cy="92" r="2.5" fill="#333"/>
+      <path d="M83 105 Q90 110 97 105" stroke="#333" stroke-width="2" fill="none"/>
+      <!-- camisa verde -->
+      <path d="M50 200 L50 140 Q90 120 130 140 L130 200 Z" fill="#15803D"/>
+      <path d="M82 125 L90 140 L98 125 L94 118 L86 118 Z" fill="#FFFFFF"/>
+      <!-- braço apontando -->
+      <path d="M130 150 Q150 145 165 130" stroke="#15803D" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <circle cx="166" cy="128" r="6" fill="#FCD9B6"/>
+    </svg>
+    <div class="seta-manual">➜</div>
+  </div>
 
-  <!-- Botão voltar ao topo -->
-  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+  <div class="carrossel-wrap">
+    <h2>Clientes</h2>
+    <div class="carrossel">
+      <button class="nav-btn" onclick="moverCarrossel(-1)">&lt;</button>
+      <div class="carrossel-track" id="track">
+        <div class="cliente-card"><svg viewBox="0 0 100 60"><circle cx="30" cy="30" r="18" fill="#15803D"/><rect x="50" y="22" width="40" height="16" fill="#475569"/></svg></div>
+        <div class="cliente-card"><svg viewBox="0 0 100 60"><polygon points="20,45 50,10 80,45" fill="#0EA5E9"/><rect x="35" y="35" width="30" height="15" fill="#F59E0B"/></svg></div>
+        <div class="cliente-card"><svg viewBox="0 0 100 60"><rect x="15" y="20" width="70" height="20" rx="10" fill="#7C3AED"/><circle cx="50" cy="30" r="6" fill="#FFFFFF"/></svg></div>
+        <div class="cliente-card"><svg viewBox="0 0 100 60"><path d="M20 45 L50 15 L80 45 Z M20 45 H80" stroke="#DC2626" stroke-width="5" fill="none"/></svg></div>
+        <div class="cliente-card"><svg viewBox="0 0 100 60"><rect x="20" y="15" width="60" height="30" fill="#22C55E"/><text x="50" y="36" font-size="14" fill="white" text-anchor="middle" font-weight="bold">E</text></svg></div>
+      </div>
+      <button class="nav-btn" onclick="moverCarrossel(1)">&gt;</button>
+    </div>
+  </div>
+</section>
 
-  <!-- JavaScript -->
-  <script src="js/script.js"></script>
+<footer id="contato">
+  <div class="footer-contato">
+    <h3>Contato:</h3>
+    <p>WhatsApp: <a href="https://wa.me/5524988238084" target="_blank">(24) 98823-8084</a></p>
+    <p>E-mail: <a href="mailto:sumontec@yahoo.com">sumontec@yahoo.com</a></p>
+    <p>Petrópolis - RJ • Atendemos em um raio de 200km</p>
+  </div>
+  <div>
+    <p>&copy; 2024 GRUPO SUMONTEC - Serviços Especializados de Engenharia Ltda</p>
+  </div>
+</footer>
+
+<script>
+  function solicitarOrcamento() {
+    window.open('https://wa.me/5524988238084?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento.', '_blank');
+  }
+
+  let posicao = 0;
+  const passo = 156;
+  function moverCarrossel(dir) {
+    const track = document.getElementById('track');
+    const max = track.scrollWidth - track.parentElement.offsetWidth + 100;
+    posicao += dir * passo;
+    if (posicao > 0) posicao = 0;
+    if (posicao < -max) posicao = -max;
+    track.style.transform = 'translateX(' + posicao + 'px)';
+  }
+
+  document.querySelectorAll('.card').forEach(function(card) {
+    card.addEventListener('mouseenter', function() { card.style.zIndex = 10; });
+    card.addEventListener('mouseleave', function() { card.style.zIndex = 1; });
+  });
+</script>
 </body>
 </html>
