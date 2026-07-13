@@ -1,445 +1,1522 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SUMONTEC - Serviços Especializados de Engenharia Ltda. Projetos de estruturas metálicas, concreto armado, elétricos, pisos industriais, fabricação e montagem em Petrópolis-RJ e região.">
-<title>SUMONTEC - Serviços Especializados de Engenharia Ltda</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --verde: #2E7D32;
-    --verde-escuro: #1B5E20;
-    --verde-claro: #4CAF50;
-    --cinza-claro: #F5F7F5;
-    --cinza: #6B7280;
-    --cinza-escuro: #1F2937;
-    --branco: #FFFFFF;
-    --sombra: 0 4px 16px rgba(0,0,0,0.08);
-    --sombra-hover: 0 10px 28px rgba(46,125,50,0.18);
-    --raio: 12px;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SUMONTEC - Serviços Especializados de Engenharia Ltda. Projetos e execuções em estruturas metálicas, concreto armado, elétrica, pisos industriais e energia fotovoltaica." />
+  <meta name="author" content="SUMONTEC" />
+  <title>SUMONTEC - Serviços Especializados de Engenharia Ltda</title>
+  <link rel="icon" href="4889.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-900: #0b3d2e;
+      --green-700: #14724a;
+      --green-600: #1a8a5a;
+      --green-500: #21a366;
+      --green-400: #2bb673;
+      --green-300: #5fd39a;
+      --green-100: #e6f6ee;
+      --dark: #0f1b16;
+      --gray-900: #1c2620;
+      --gray-700: #3a463f;
+      --gray-500: #6b766f;
+      --gray-300: #c7ccc8;
+      --gray-100: #f3f5f4;
+      --white: #ffffff;
+      --whatsapp: #25d366;
+      --whatsapp-dark: #1da851;
+      --shadow-sm: 0 2px 8px rgba(15, 27, 22, 0.08);
+      --shadow-md: 0 8px 24px rgba(15, 27, 22, 0.12);
+      --shadow-lg: 0 20px 50px rgba(15, 27, 22, 0.18);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --header-h: 76px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    color:var(--cinza-escuro);
-    background:var(--branco);
-    line-height:1.6;
-  }
-  a{text-decoration:none;color:inherit;}
-  img{max-width:100%;display:block;}
-  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* HEADER */
-  header{
-    position:sticky;top:0;z-index:100;
-    background:rgba(255,255,255,0.96);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid #E5E7EB;
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:16px 0;
-  }
-  .logo{display:flex;align-items:center;gap:12px;}
-  .logo-mark{
-    width:46px;height:46px;border-radius:10px;
-    background:linear-gradient(135deg,var(--verde),var(--verde-escuro));
-    display:flex;align-items:center;justify-content:center;
-    color:#fff;font-weight:800;font-size:18px;letter-spacing:.5px;
-  }
-  .logo-text strong{display:block;font-size:18px;color:var(--verde-escuro);letter-spacing:.5px;}
-  .logo-text span{font-size:11px;color:var(--cinza);text-transform:uppercase;letter-spacing:1px;}
-  .nav-links{display:flex;gap:28px;list-style:none;}
-  .nav-links a{font-size:15px;font-weight:500;color:var(--cinza-escuro);transition:color .2s;}
-  .nav-links a:hover{color:var(--verde);}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:12px 22px;border-radius:8px;font-weight:600;font-size:15px;
-    transition:all .25s ease;cursor:pointer;border:none;
-  }
-  .btn-primary{background:var(--verde);color:#fff;}
-  .btn-primary:hover{background:var(--verde-escuro);transform:translateY(-2px);box-shadow:0 8px 20px rgba(46,125,50,0.3);}
-  .btn-outline{background:transparent;color:var(--verde);border:2px solid var(--verde);}
-  .btn-outline:hover{background:var(--verde);color:#fff;transform:translateY(-2px);}
-  .btn-white{background:#fff;color:var(--verde-escuro);}
-  .btn-white:hover{background:var(--cinza-claro);transform:translateY(-2px);}
-  .btn-whatsapp{background:#25D366;color:#fff;}
-  .btn-whatsapp:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,0.3);}
-  .menu-toggle{display:none;background:none;border:none;cursor:pointer;font-size:26px;color:var(--verde-escuro);}
+    html { scroll-behavior: smooth; }
 
-  /* HERO */
-  .hero{
-    background:linear-gradient(135deg,var(--verde-escuro) 0%,var(--verde) 100%);
-    color:#fff;padding:90px 0 100px;position:relative;overflow:hidden;
-  }
-  .hero::after{
-    content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
-    background:rgba(255,255,255,0.06);border-radius:50%;
-  }
-  .hero::before{
-    content:"";position:absolute;left:-80px;bottom:-80px;width:260px;height:260px;
-    background:rgba(255,255,255,0.05);border-radius:50%;
-  }
-  .hero-content{position:relative;z-index:2;max-width:720px;}
-  .hero-tag{
-    display:inline-block;background:rgba(255,255,255,0.15);padding:8px 16px;
-    border-radius:50px;font-size:13px;font-weight:500;margin-bottom:20px;
-  }
-  .hero h1{font-size:clamp(32px,5vw,52px);font-weight:800;line-height:1.15;margin-bottom:18px;}
-  .hero p{font-size:18px;opacity:.92;margin-bottom:14px;}
-  .hero-location{display:flex;align-items:center;gap:10px;font-size:16px;margin-bottom:32px;opacity:.95;}
-  .hero-buttons{display:flex;flex-wrap:wrap;gap:14px;}
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--gray-900);
+      background: var(--gray-100);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  /* SECTION TITLES */
-  .section{padding:80px 0;}
-  .section-alt{background:var(--cinza-claro);}
-  .section-head{text-align:center;max-width:680px;margin:0 auto 56px;}
-  .section-head .eyebrow{color:var(--verde);font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:13px;}
-  .section-head h2{font-size:clamp(26px,4vw,36px);font-weight:800;color:var(--cinza-escuro);margin:10px 0 14px;}
-  .section-head p{color:var(--cinza);font-size:17px;}
+    img { max-width: 100%; display: block; }
 
-  /* SERVICES GRID */
-  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-  .card{
-    background:#fff;border-radius:var(--raio);padding:32px 28px;
-    box-shadow:var(--sombra);transition:transform .25s,box-shadow .25s;
-    border:1px solid #EEF2EE;
-  }
-  .card:hover{transform:translateY(-6px);box-shadow:var(--sombra-hover);}
-  .card-icon{
-    width:56px;height:56px;border-radius:12px;
-    background:linear-gradient(135deg,var(--verde-claro),var(--verde));
-    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
-  }
-  .card-icon svg{width:30px;height:30px;color:#fff;}
-  .card h3{font-size:19px;font-weight:700;margin-bottom:10px;color:var(--cinza-escuro);}
-  .card p{color:var(--cinza);font-size:15px;}
+    a { color: inherit; text-decoration: none; }
 
-  /* DIFERENCIAIS */
-  .diferenciais{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-  .diferencial{text-align:center;padding:36px 24px;}
-  .diferencial .num{
-    width:64px;height:64px;border-radius:50%;margin:0 auto 18px;
-    background:var(--verde);color:#fff;font-weight:800;font-size:22px;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .diferencial h3{font-size:20px;margin-bottom:10px;}
-  .diferencial p{color:var(--cinza);}
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-  /* COMO FUNCIONA */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative;}
-  .step{background:#fff;border-radius:var(--raio);padding:32px 28px;box-shadow:var(--sombra);position:relative;}
-  .step .step-num{font-size:14px;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:1px;}
-  .step h3{font-size:19px;margin:10px 0 10px;}
-  .step p{color:var(--cinza);font-size:15px;}
-  .step-icon{width:48px;height:48px;border-radius:10px;background:var(--cinza-claro);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
-  .step-icon svg{width:26px;height:26px;color:var(--verde);}
+    /* ===== HEADER ===== */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-300);
+      z-index: 1000;
+      transition: box-shadow var(--transition);
+    }
 
-  /* CLIENTES */
-  .clientes-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;}
-  .cliente-logo{
-    background:#fff;border:1px solid #E5E7EB;border-radius:10px;
-    height:90px;display:flex;align-items:center;justify-content:center;
-    color:var(--cinza);font-size:13px;font-weight:500;text-align:center;
-    transition:all .25s;
-  }
-  .cliente-logo:hover{border-color:var(--verde);color:var(--verde);transform:translateY(-3px);}
+    #site-header.scrolled { box-shadow: var(--shadow-md); }
 
-  /* CTA */
-  .cta{
-    background:linear-gradient(135deg,var(--verde),var(--verde-escuro));
-    color:#fff;text-align:center;padding:70px 0;border-radius:0;
-  }
-  .cta h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:14px;}
-  .cta p{font-size:17px;opacity:.92;margin-bottom:28px;}
-  .cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-  /* FOOTER */
-  footer{background:var(--cinza-escuro);color:#D1D5DB;padding:60px 0 24px;}
-  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px;}
-  .footer-brand .logo-mark{margin-bottom:16px;}
-  .footer-brand p{font-size:14px;color:#9CA3AF;max-width:320px;}
-  .footer-col h4{color:#fff;font-size:16px;margin-bottom:16px;}
-  .footer-col ul{list-style:none;}
-  .footer-col li{margin-bottom:12px;font-size:14px;display:flex;align-items:flex-start;gap:10px;}
-  .footer-col a:hover{color:var(--verde-claro);}
-  .footer-col svg{width:18px;height:18px;color:var(--verde-claro);flex-shrink:0;margin-top:2px;}
-  .footer-bottom{border-top:1px solid #374151;padding-top:24px;text-align:center;font-size:13px;color:#9CA3AF;}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-  /* RESPONSIVE */
-  @media(max-width:900px){
-    .services-grid,.diferenciais,.steps{grid-template-columns:repeat(2,1fr);}
-    .clientes-grid{grid-template-columns:repeat(3,1fr);}
-    .footer-grid{grid-template-columns:1fr 1fr;}
-  }
-  @media(max-width:680px){
-    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid #E5E7EB;box-shadow:var(--sombra);}
-    .nav-links.open{display:flex;}
-    .menu-toggle{display:block;}
-    .nav .btn-primary{display:none;}
-    .services-grid,.diferenciais,.steps,.clientes-grid,.footer-grid{grid-template-columns:1fr;}
-    .hero{padding:60px 0 70px;}
-    .section{padding:60px 0;}
-  }
-</style>
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: var(--green-100);
+      padding: 4px;
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-name strong {
+      font-size: 1.15rem;
+      color: var(--green-700);
+      letter-spacing: 0.5px;
+    }
+
+    .brand-name span {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+
+    #main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    #main-nav a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--gray-700);
+      position: relative;
+      padding: 6px 0;
+      transition: color var(--transition);
+    }
+
+    #main-nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 2px;
+      background: var(--green-500);
+      transition: width var(--transition);
+    }
+
+    #main-nav a:hover, #main-nav a:focus { color: var(--green-700); }
+    #main-nav a:hover::after, #main-nav a:focus::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--green-600);
+      color: var(--white) !important;
+      padding: 10px 18px !important;
+      border-radius: 999px;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .nav-cta::after { display: none; }
+    .nav-cta:hover { background: var(--green-700); transform: translateY(-2px); }
+
+    #menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 42px; height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    #menu-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--green-700);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    #menu-toggle span::before,
+    #menu-toggle span::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 24px; height: 2px;
+      background: var(--green-700);
+      transition: var(--transition);
+    }
+
+    #menu-toggle span::before { top: -7px; }
+    #menu-toggle span::after { top: 7px; }
+
+    /* ===== MAIN LAYOUT ===== */
+    main { padding-top: var(--header-h); }
+
+    #hero-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - var(--header-h));
+    }
+
+    /* ===== LEFT PANEL: SERVICES ===== */
+    #services-panel {
+      background: var(--gray-100);
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .panel-heading {
+      margin-bottom: 28px;
+    }
+
+    .panel-heading .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green-600);
+      margin-bottom: 8px;
+    }
+
+    .panel-heading h2 {
+      font-size: 1.7rem;
+      color: var(--gray-900);
+      font-weight: 800;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--green-500);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--green-300);
+    }
+
+    .service-card:hover::before { transform: scaleY(1); }
+
+    .service-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--green-100);
+      color: var(--green-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-size: 1.4rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 6px;
+    }
+
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    /* ===== RIGHT PANEL: HERO ===== */
+    #hero-panel {
+      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 55%, var(--green-500) 100%);
+      color: var(--white);
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero-panel::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+      border-radius: 50%;
+    }
+
+    #hero-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -80px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 540px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 22px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-content h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero-content .hero-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.92;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+
+    .stat-item .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-item .stat-label {
+      font-size: 0.78rem;
+      opacity: 0.85;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: var(--white);
+    }
+
+    .btn-whatsapp:hover { background: var(--whatsapp-dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(37,211,102,0.4); }
+
+    .btn-email {
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-email:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
+
+    /* ===== CLIENTS CAROUSEL ===== */
+    #clients-section {
+      padding: 64px 0;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title .eyebrow {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green-600);
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gray-900);
+    }
+
+    .carousel-wrapper {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 48px;
+      width: max-content;
+      animation: scrollClients 30s linear infinite;
+    }
+
+    .carousel-wrapper:hover .carousel-track { animation-play-state: paused; }
+
+    @keyframes scrollClients {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .client-logo {
+      flex: 0 0 auto;
+      width: 180px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gray-100);
+      border-radius: 12px;
+      font-weight: 700;
+      color: var(--gray-700);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      border: 1px solid var(--gray-300);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .client-logo:hover { transform: scale(1.05); box-shadow: var(--shadow-sm); }
+
+    /* ===== ABOUT ===== */
+    #about-section {
+      padding: 80px 0;
+      background: var(--gray-100);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 18px;
+    }
+
+    .about-text p {
+      color: var(--gray-700);
+      margin-bottom: 16px;
+    }
+
+    .about-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, var(--green-700), var(--green-400));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 24px;
+    }
+
+    /* ===== DIFFERENTIALS ===== */
+    #differentials-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .differentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .differential-card {
+      background: var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      border: 1px solid var(--gray-300);
+    }
+
+    .differential-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+
+    .differential-icon {
+      width: 64px; height: 64px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--green-600);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    .differential-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--gray-900);
+    }
+
+    .differential-card p {
+      color: var(--gray-500);
+      font-size: 0.95rem;
+    }
+
+    /* ===== CONTACT FORM ===== */
+    #contact-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--green-900), var(--green-700));
+      color: var(--white);
+    }
+
+    #contact-section .section-title h2 { color: var(--white); }
+    #contact-section .section-title .eyebrow { color: var(--green-300); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p { opacity: 0.9; margin-bottom: 24px; }
+
+    .contact-info ul { list-style: none; }
+
+    .contact-info li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info .ci-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    #contact-form {
+      background: var(--white);
+      color: var(--gray-900);
+      padding: 36px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-group { margin-bottom: 20px; }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--gray-700);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--gray-300);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      background: var(--white);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--green-500);
+      box-shadow: 0 0 0 3px rgba(33,163,102,0.15);
+    }
+
+    .form-group .error-msg {
+      display: none;
+      color: #c0392b;
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+
+    .form-group.invalid input,
+    .form-group.invalid textarea,
+    .form-group.invalid select {
+      border-color: #c0392b;
+    }
+
+    .form-group.invalid .error-msg { display: block; }
+
+    #form-feedback {
+      display: none;
+      padding: 14px 18px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    #form-feedback.success { display: block; background: var(--green-100); color: var(--green-700); }
+    #form-feedback.error { display: block; background: #fdecea; color: #c0392b; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--green-600);
+      color: var(--white);
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    .btn-submit:hover { background: var(--green-700); transform: translateY(-2px); }
+
+    /* ===== FOOTER ===== */
+    #site-footer {
+      background: var(--dark);
+      color: var(--gray-300);
+      padding: 56px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .brand { margin-bottom: 16px; }
+    .footer-brand .brand-name strong { color: var(--green-300); }
+    .footer-brand p { font-size: 0.9rem; color: var(--gray-500); max-width: 320px; }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-size: 0.9rem; color: var(--gray-500); transition: color var(--transition); }
+    .footer-col a:hover { color: var(--green-300); }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-links a {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition), transform var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .social-links a:hover { background: var(--green-600); transform: translateY(-3px); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    /* ===== SIDE MENU ===== */
+    #side-menu {
+      position: fixed;
+      top: 0; left: -320px;
+      width: 300px;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: var(--shadow-lg);
+      z-index: 1200;
+      transition: left var(--transition);
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    #side-menu.open { left: 0; }
+
+    .side-menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--gray-300);
+    }
+
+    .side-menu-header h3 { color: var(--green-700); font-size: 1.1rem; }
+
+    #side-menu-close {
+      background: var(--gray-100);
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--gray-700);
+      transition: background var(--transition);
+    }
+
+    #side-menu-close:hover { background: var(--gray-300); }
+
+    #side-menu ul { list-style: none; }
+
+    #side-menu li { margin-bottom: 8px; }
+
+    #side-menu a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: var(--gray-700);
+      transition: background var(--transition), color var(--transition);
+    }
+
+    #side-menu a:hover { background: var(--green-100); color: var(--green-700); }
+
+    #side-menu .sm-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--green-100);
+      color: var(--green-700);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    #side-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,27,22,0.5);
+      z-index: 1100;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition), visibility var(--transition);
+    }
+
+    #side-overlay.open { opacity: 1; visibility: visible; }
+
+    /* ===== FLOATING WHATSAPP ===== */
+    #whatsapp-float {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 60px; height: 60px;
+      background: var(--whatsapp);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.5);
+      z-index: 900;
+      transition: transform var(--transition), background var(--transition);
+      animation: pulseWhats 2.5s infinite;
+    }
+
+    #whatsapp-float:hover { transform: scale(1.1); background: var(--whatsapp-dark); }
+
+    #whatsapp-float svg { width: 32px; height: 32px; fill: var(--white); }
+
+    @keyframes pulseWhats {
+      0% { box-shadow: 0 8px 24px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.5); }
+      70% { box-shadow: 0 8px 24px rgba(37,211,102,0.5), 0 0 0 18px rgba(37,211,102,0); }
+      100% { box-shadow: 0 8px 24px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* ===== AVATAR CHAT ===== */
+    #avatar-chat {
+      position: fixed;
+      bottom: 24px; left: 24px;
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    #avatar-bubble {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: 16px 16px 16px 4px;
+      padding: 14px 18px;
+      max-width: 280px;
+      box-shadow: var(--shadow-md);
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      display: none;
+      animation: bubbleIn 0.4s ease;
+    }
+
+    #avatar-bubble.show { display: block; }
+
+    #avatar-bubble .typing-cursor {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--green-600);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    #avatar-button {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-600), var(--green-400));
+      border: 3px solid var(--white);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      transition: transform var(--transition);
+      position: relative;
+    }
+
+    #avatar-button:hover { transform: scale(1.08); }
+
+    #avatar-button .avatar-status {
+      position: absolute;
+      bottom: 2px; right: 2px;
+      width: 14px; height: 14px;
+      background: #2ecc71;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      #hero-section { grid-template-columns: 1fr; }
+      #services-panel { padding: 40px 24px; }
+      #hero-panel { padding: 48px 32px; min-height: auto; }
+      .hero-content h1 { font-size: 2.2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      #main-nav ul { gap: 18px; }
+    }
+
+    @media (max-width: 768px) {
+      #menu-toggle { display: flex; }
+      #main-nav { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .differentials-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .stat-number { font-size: 1.5rem !important; }
+      .hero-content h1 { font-size: 1.9rem; }
+      .hero-content .hero-subtitle { font-size: 1rem; }
+      .panel-heading h2 { font-size: 1.4rem; }
+      .section-title h2 { font-size: 1.6rem; }
+      #contact-form { padding: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      #avatar-bubble { max-width: 240px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      #hero-panel { padding: 36px 20px; }
+      #services-panel { padding: 32px 16px; }
+      .hero-content h1 { font-size: 1.6rem; }
+      .hero-ctas { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .hero-stats { grid-template-columns: 1fr; text-align: center; }
+      .hero-stats .stat-item { display: flex; flex-direction: column; align-items: center; }
+      #whatsapp-float { width: 52px; height: 52px; bottom: 16px; right: 16px; }
+      #whatsapp-float svg { width: 26px; height: 26px; }
+      #avatar-chat { bottom: 16px; left: 16px; }
+      #avatar-button { width: 52px; height: 52px; font-size: 1.5rem; }
+      #avatar-bubble { max-width: 200px; font-size: 0.82rem; }
+      .brand-name strong { font-size: 1rem; }
+      .brand-name span { font-size: 0.65rem; }
+      .brand-logo { width: 38px; height: 38px; }
+    }
+
+    @media (max-width: 360px) {
+      .hero-content h1 { font-size: 1.4rem; }
+      .panel-heading h2 { font-size: 1.2rem; }
+      .section-title h2 { font-size: 1.35rem; }
+      #contact-form { padding: 18px; }
+      .service-card { padding: 16px 14px; }
+      .client-logo { width: 140px; height: 64px; font-size: 0.85rem; }
+      #avatar-bubble { max-width: 170px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="container nav">
-    <a href="#inicio" class="logo">
-      <div class="logo-mark">ST</div>
-      <div class="logo-text">
-        <strong>SUMONTEC</strong>
-        <span>Engenharia Especializada</span>
-      </div>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#portfolio">Portfólio</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#contato">Contato</a></li>
+  <!-- ===== HEADER ===== -->
+  <header id="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#hero-section" class="brand" aria-label="SUMONTEC - Página inicial">
+        <img src="4889.png" alt="Logo SUMONTEC" class="brand-logo" width="46" height="46" />
+        <span class="brand-name">
+          <strong>SUMONTEC</strong>
+          <span>Serviços Especializados de Engenharia Ltda</span>
+        </span>
+      </a>
+
+      <nav id="main-nav" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="#hero-section">Início</a></li>
+          <li><a href="#about-section">Sobre</a></li>
+          <li><a href="#differentials-section">Diferenciais</a></li>
+          <li><a href="#clients-section">Clientes</a></li>
+          <li><a href="#contact-section" class="nav-cta">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button id="menu-toggle" aria-label="Abrir menu lateral" aria-expanded="false" aria-controls="side-menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== SIDE MENU ===== -->
+  <div id="side-overlay" aria-hidden="true"></div>
+  <aside id="side-menu" role="complementary" aria-label="Menu lateral de serviços" aria-hidden="true">
+    <div class="side-menu-header">
+      <h3>Nossos Serviços</h3>
+      <button id="side-menu-close" aria-label="Fechar menu lateral">&times;</button>
+    </div>
+    <ul>
+      <li><a href="#hero-section"><span class="sm-icon">🏗️</span> Estruturas Metálicas</a></li>
+      <li><a href="#hero-section"><span class="sm-icon">🧱</span> Concreto Armado</a></li>
+      <li><a href="#hero-section"><span class="sm-icon">⚡</span> Instalações Elétricas</a></li>
+      <li><a href="#hero-section"><span class="sm-icon">🏭</span> Pisos Industriais</a></li>
+      <li><a href="#hero-section"><span class="sm-icon">🔧</span> Fabricação e Montagem</a></li>
+      <li><a href="#hero-section"><span class="sm-icon">🛠️</span> Pisos (Reforma)</a></li>
+      <li><a href="#hero-section"><span class="sm-icon">☀️</span> Energia Fotovoltaica</a></li>
     </ul>
-    <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
-    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
-  </div>
-</header>
+  </aside>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="container hero-content">
-    <span class="hero-tag">Serviços Especializados de Engenharia Ltda</span>
-    <h1>Engenharia, projetos e execução</h1>
-    <p>Soluções completas em estruturas metálicas, concreto armado, projetos elétricos e pisos industriais — do projeto à execução.</p>
-    <div class="hero-location">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Petrópolis–RJ e região (raio de até 200 km)
-    </div>
-    <div class="hero-buttons">
-      <a href="https://wa.me/5524988238084" target="_blank" rel="noopener" class="btn btn-whatsapp">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="mailto:sumontec@yahoo.com" class="btn btn-white">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        E-mail
-      </a>
-    </div>
-  </div>
-</section>
+  <main role="main">
 
-<!-- SERVIÇOS -->
-<section class="section" id="servicos">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Nossos Serviços</span>
-      <h2>Soluções completas em engenharia</h2>
-      <p>Do projeto à execução, oferecemos especialização técnica para cada etapa da sua obra.</p>
-    </div>
-    <div class="services-grid">
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg>
-        </div>
-        <h3>Projetos de Estruturas Metálicas</h3>
-        <p>Dimensionamento e detalhamento de galpões, mezaninos e estruturas em aço, com memória de cálculo e plantas de montagem.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-        </div>
-        <h3>Projetos de Concreto Armado</h3>
-        <p>Cálculo e detalhamento de fundações, pilares, vigas e lajes, seguindo as normas técnicas vigentes.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <h3>Projetos Elétricos (Baixa Tensão)</h3>
-        <p>Elaboração de projetos elétricos prediais e industriais em baixa tensão, com diagramas, quadros e especificações.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-        </div>
-        <h3>Projetos de Pisos Industriais</h3>
-        <p>Dimensionamento de pisos industriais com controle de juntas, cargas e acabamentos adequados ao uso.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M4 22V8l8-5 8 5v14"/><path d="M9 22V12h6v10"/></svg>
-        </div>
-        <h3>Fabricação e Montagem (Galpões e Mezaninos)</h3>
-        <p>Fabricação e montagem de estruturas metálicas para galpões e mezaninos, com qualidade e segurança.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg>
-        </div>
-        <h3>Pisos Industriais (Implantação e Reforma)</h3>
-        <p>Execução de pisos industriais novos e reformas, garantindo durabilidade, planicidade e desempenho.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ===== HERO / SERVICES ===== -->
+    <section id="hero-section" aria-label="Serviços e apresentação">
 
-<!-- POR QUE A SUMONTEC -->
-<section class="section section-alt" id="sobre">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Diferenciais</span>
-      <h2>Por que a SUMONTEC?</h2>
-      <p>Experiência técnica, comprometimento e soluções sob medida para cada cliente.</p>
-    </div>
-    <div class="diferenciais">
-      <div class="diferencial">
-        <div class="num">01</div>
-        <h3>Equipe Especializada</h3>
-        <p>Profissionais com experiência em projetos e execução de obras industriais e comerciais.</p>
-      </div>
-      <div class="diferencial">
-        <div class="num">02</div>
-        <h3>Do Projeto à Execução</h3>
-        <p>Acompanhamos todas as etapas, garantindo coerência entre o projetado e o executado.</p>
-      </div>
-      <div class="diferencial">
-        <div class="num">03</div>
-        <h3>Atendimento Regional</h3>
-        <p>Atendemos Petrópolis–RJ e região em um raio de até 200 km, com agilidade e proximidade.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO FUNCIONA -->
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Processo</span>
-      <h2>Como funciona</h2>
-      <p>Um fluxo simples e transparente para tirar seu projeto do papel.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <!-- LEFT PANEL: SERVICES -->
+      <div id="services-panel" aria-labelledby="services-heading">
+        <div class="panel-heading">
+          <span class="eyebrow">O que fazemos</span>
+          <h2 id="services-heading">Serviços Especializados</h2>
         </div>
-        <span class="step-num">Passo 01</span>
-        <h3>Contato e Briefing</h3>
-        <p>Você nos chama pelo WhatsApp ou e-mail. Entendemos sua necessidade e o escopo do projeto.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+
+        <div class="services-grid">
+          <article class="service-card" tabindex="0" aria-label="Estruturas Metálicas">
+            <div class="service-icon" aria-hidden="true">🏗️</div>
+            <h3>Estruturas Metálicas</h3>
+            <p>Projeto, fabricação e montagem de estruturas metálicas para diversos segmentos.</p>
+          </article>
+
+          <article class="service-card" tabindex="0" aria-label="Concreto Armado">
+            <div class="service-icon" aria-hidden="true">🧱</div>
+            <h3>Concreto Armado</h3>
+            <p>Projetos estruturais em concreto armado com cálculo e detalhamento completos.</p>
+          </article>
+
+          <article class="service-card" tabindex="0" aria-label="Instalações Elétricas">
+            <div class="service-icon" aria-hidden="true">⚡</div>
+            <h3>Instalações Elétricas</h3>
+            <p>Projetos de instalações elétricas em baixa tensão (BT) conforme normas vigentes.</p>
+          </article>
+
+          <article class="service-card" tabindex="0" aria-label="Pisos Industriais">
+            <div class="service-icon" aria-hidden="true">🏭</div>
+            <h3>Pisos Industriais</h3>
+            <p>Projeto e execução de pisos industriais de alta resistência e durabilidade.</p>
+          </article>
+
+          <article class="service-card" tabindex="0" aria-label="Fabricação e Montagem">
+            <div class="service-icon" aria-hidden="true">🔧</div>
+            <h3>Fabricação e Montagem</h3>
+            <p>Fabricação e montagem de galpões e mezaninos sob medida.</p>
+          </article>
+
+          <article class="service-card" tabindex="0" aria-label="Pisos Reforma">
+            <div class="service-icon" aria-hidden="true">🛠️</div>
+            <h3>Pisos (Reforma)</h3>
+            <p>Reforma e recuperação de pisos existentes com soluções técnicas adequadas.</p>
+          </article>
+
+          <article class="service-card" tabindex="0" aria-label="Energia Fotovoltaica">
+            <div class="service-icon" aria-hidden="true">☀️</div>
+            <h3>Energia Fotovoltaica</h3>
+            <p>Sistemas solares fotovoltaicos para geração de energia limpa e econômica.</p>
+          </article>
+
+          <article class="service-card" tabindex="0" aria-label="Fale com especialista" style="background:var(--green-100);border-color:var(--green-300);">
+            <div class="service-icon" aria-hidden="true">💬</div>
+            <h3>Fale Conosco</h3>
+            <p>Solicite um orçamento personalizado para o seu projeto.</p>
+          </article>
         </div>
-        <span class="step-num">Passo 02</span>
-        <h3>Projeto e Proposta</h3>
-        <p>Elaboramos o projeto técnico e enviamos uma proposta clara, com prazos e custos definidos.</p>
       </div>
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+
+      <!-- RIGHT PANEL: HERO -->
+      <div id="hero-panel" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <span class="hero-badge">✦ Engenharia Especializada</span>
+          <h1 id="hero-title">Soluções completas em engenharia estrutural e industrial</h1>
+          <p class="hero-subtitle">A SUMONTEC une projeto, fabricação e execução para entregar obras seguras, eficientes e dentro do prazo.</p>
+
+          <div class="hero-stats" role="list">
+            <div class="stat-item" role="listitem">
+              <span class="stat-number" data-target="15">0</span>
+              <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-number" data-target="320">0</span>
+              <span class="stat-label">Projetos entregues</span>
+            </div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-number" data-target="98">0</span>
+              <span class="stat-label">% Clientes satisfeitos</span>
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento" class="btn btn-whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              WhatsApp
+            </a>
+            <a href="mailto:contato@sumontec.com.br" class="btn btn-email" aria-label="Enviar e-mail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              E-mail
+            </a>
+          </div>
         </div>
-        <span class="step-num">Passo 03</span>
-        <h3>Execução e Entrega</h3>
-        <p>Realizamos a fabricação, montagem ou execução conforme o projeto, com qualidade e segurança.</p>
+      </div>
+    </section>
+
+    <!-- ===== CLIENTS CAROUSEL ===== -->
+    <section id="clients-section" aria-labelledby="clients-title">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Confiança</span>
+          <h2 id="clients-title">Nossos Clientes</h2>
+        </div>
+      </div>
+      <div class="carousel-wrapper" aria-label="Carrossel de clientes">
+        <div class="carousel-track" id="carousel-track">
+          <div class="client-logo">Cliente A</div>
+          <div class="client-logo">Cliente B</div>
+          <div class="client-logo">Cliente C</div>
+          <div class="client-logo">Cliente D</div>
+          <div class="client-logo">Cliente E</div>
+          <div class="client-logo">Cliente F</div>
+          <div class="client-logo">Cliente G</div>
+          <div class="client-logo">Cliente H</div>
+          <!-- duplicados para loop infinito -->
+          <div class="client-logo" aria-hidden="true">Cliente A</div>
+          <div class="client-logo" aria-hidden="true">Cliente B</div>
+          <div class="client-logo" aria-hidden="true">Cliente C</div>
+          <div class="client-logo" aria-hidden="true">Cliente D</div>
+          <div class="client-logo" aria-hidden="true">Cliente E</div>
+          <div class="client-logo" aria-hidden="true">Cliente F</div>
+          <div class="client-logo" aria-hidden="true">Cliente G</div>
+          <div class="client-logo" aria-hidden="true">Cliente H</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about-section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="eyebrow" style="color:var(--green-600);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:0.78rem;">Quem somos</span>
+            <h2 id="about-title">Sobre a SUMONTEC</h2>
+            <p>A <strong>SUMONTEC - Serviços Especializados de Engenharia Ltda</strong> é uma empresa dedicada a oferecer soluções técnicas completas em engenharia estrutural, civil e elétrica, atendendo clientes industriais, comerciais e residenciais.</p>
+            <p>Atuamos desde a etapa de projeto até a fabricação e montagem, garantindo qualidade, segurança e cumprimento de prazos. Nossa equipe é formada por profissionais qualificados e experientes, comprometidos com a excelência em cada entrega.</p>
+            <p>Com uma abordagem integrada, unimos tecnologia, normas técnicas e boas práticas para transformar ideias em obras concretas e duradouras.</p>
+          </div>
+          <div class="about-image" role="img" aria-label="Imagem ilustrativa da SUMONTEC">
+            Engenharia<br/>com excelência
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DIFFERENTIALS ===== -->
+    <section id="differentials-section" aria-labelledby="differentials-title">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Por que nos escolher</span>
+          <h2 id="differentials-title">Nossos Diferenciais</h2>
+        </div>
+        <div class="differentials-grid">
+          <article class="differential-card">
+            <div class="differential-icon" aria-hidden="true">🎯</div>
+            <h3>Projeto à Execução</h3>
+            <p>Cobrimos todas as etapas, do projeto técnico à montagem final, garantindo integração e qualidade.</p>
+          </article>
+          <article class="differential-card">
+            <div class="differential-icon" aria-hidden="true">🛡️</div>
+            <h3>Segurança e Normas</h3>
+            <p>Todos os serviços seguem rigorosamente as normas técnicas e os protocolos de segurança.</p>
+          </article>
+          <article class="differential-card">
+            <div class="differential-icon" aria-hidden="true">⏱️</div>
+            <h3>Prazo e Custo</h3>
+            <p>Planejamento eficiente para entregar obras no prazo com otimização de custos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact-section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Fale conosco</span>
+          <h2 id="contact-title">Solicite um Orçamento</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Entre em contato</h3>
+            <p>Estamos prontos para atender o seu projeto. Envie sua mensagem ou utilize nossos canais diretos.</p>
+            <ul>
+              <li><span class="ci-icon" aria-hidden="true">📞</span> (00) 0000-0000</li>
+              <li><span class="ci-icon" aria-hidden="true">✉️</span> contato@sumontec.com.br</li>
+              <li><span class="ci-icon" aria-hidden="true">📍</span> Endereço da Empresa, Cidade - UF</li>
+              <li><span class="ci-icon" aria-hidden="true">🕒</span> Seg - Sex: 08h às 18h</li>
+            </ul>
+          </div>
+
+          <form id="contact-form" novalidate aria-label="Formulário de contato">
+            <div id="form-feedback" role="alert" aria-live="polite"></div>
+
+            <div class="form-group">
+              <label for="name">Nome completo *</label>
+              <input type="text" id="name" name="name" required autocomplete="name" aria-required="true" />
+              <span class="error-msg">Informe o seu nome.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required autocomplete="email" aria-required="true" />
+              <span class="error-msg">Informe um e-mail válido.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Telefone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
+              <span class="error-msg">Informe um telefone válido.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Serviço de interesse *</label>
+              <select id="service" name="service" required aria-required="true">
+                <option value="">Selecione um serviço</option>
+                <option value="estruturas-metalicas">Estruturas Metálicas</option>
+                <option value="concreto-armado">Concreto Armado</option>
+                <option value="instalacoes-eletricas">Instalações Elétricas</option>
+                <option value="pisos-industriais">Pisos Industriais</option>
+                <option value="fabricacao-montagem">Fabricação e Montagem</option>
+                <option value="pisos-reforma">Pisos (Reforma)</option>
+                <option value="energia-fotovoltaica">Energia Fotovoltaica</option>
+              </select>
+              <span class="error-msg">Selecione um serviço.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensagem *</label>
+              <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+              <span class="error-msg">Escreva a sua mensagem.</span>
+            </div>
+
+            <button type="submit" class="btn btn-submit">Enviar mensagem</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand">
+            <img src="4889.png" alt="Logo SUMONTEC" class="brand-logo" width="46" height="46" />
+            <span class="brand-name">
+              <strong>SUMONTEC</strong>
+              <span>Serviços Especializados de Engenharia Ltda</span>
+            </span>
+          </div>
+          <p>Soluções completas em engenharia estrutural, civil e elétrica. Do projeto à execução, com qualidade e segurança.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#about-section">Sobre</a></li>
+            <li><a href="#differentials-section">Diferenciais</a></li>
+            <li><a href="#clients-section">Clientes</a></li>
+            <li><a href="#contact-section">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#hero-section">Estruturas Metálicas</a></li>
+            <li><a href="#hero-section">Concreto Armado</a></li>
+            <li><a href="#hero-section">Instalações Elétricas</a></li>
+            <li><a href="#hero-section">Energia Fotovoltaica</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="tel:0000000000">(00) 0000-0000</a></li>
+            <li><a href="mailto:contato@sumontec.com.br">contato@sumontec.com.br</a></li>
+            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="current-year">2025</span> SUMONTEC - Serviços Especializados de Engenharia Ltda. Todos os direitos reservados.
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- CLIENTES / PORTFÓLIO -->
-<section class="section section-alt" id="portfolio">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Portfólio</span>
-      <h2>Clientes e Parceiros</h2>
-      <p>Empresas que confiam no trabalho da SUMONTEC. (Espaço para logos — substitua pelos logos reais.)</p>
-    </div>
-    <div class="clientes-grid">
-      <div class="cliente-logo">Logo Cliente 1</div>
-      <div class="cliente-logo">Logo Cliente 2</div>
-      <div class="cliente-logo">Logo Cliente 3</div>
-      <div class="cliente-logo">Logo Cliente 4</div>
-      <div class="cliente-logo">Logo Cliente 5</div>
-    </div>
-  </div>
-</section>
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento" id="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
 
-<!-- CTA -->
-<section class="cta" id="contato">
-  <div class="container">
-    <h2>Pronto para iniciar seu projeto?</h2>
-    <p>Fale com a SUMONTEC e receba um orçamento personalizado.</p>
-    <div class="cta-buttons">
-      <a href="https://wa.me/5524988238084" target="_blank" rel="noopener" class="btn btn-whatsapp">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        (24) 98823-8084
-      </a>
-      <a href="mailto:sumontec@yahoo.com" class="btn btn-white">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        sumontec@yahoo.com
-      </a>
-    </div>
+  <!-- ===== AVATAR CHAT ===== -->
+  <div id="avatar-chat" aria-label="Assistente virtual">
+    <div id="avatar-bubble" role="status" aria-live="polite"></div>
+    <button id="avatar-button" aria-label="Abrir assistente virtual">
+      <span aria-hidden="true">🤖</span>
+      <span class="avatar-status" aria-hidden="true"></span>
+    </button>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo-mark">ST</div>
-        <strong style="display:block;color:#fff;font-size:18px;margin-bottom:8px;">SUMONTEC</strong>
-        <p>Serviços Especializados de Engenharia Ltda. Projetos e execução em estruturas metálicas, concreto armado, elétrica e pisos industriais.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <ul>
-          <li>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <a href="https://wa.me/5524988238084" target="_blank" rel="noopener">WhatsApp: (24) 98823-8084</a>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:sumontec@yahoo.com">sumontec@yahoo.com</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Localização</h4>
-        <ul>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Petrópolis - RJ
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Atendimento em até 200 km
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © <span id="ano"></span> SUMONTEC - Serviços Especializados de Engenharia Ltda. Todos os direitos reservados.
-    </div>
-  </div>
-</footer>
+  <script>
+    (function () {
+      'use strict';
 
-<script>
-  document.getElementById('ano').textContent = new Date().getFullYear();
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById('navLinks').classList.remove('open');
-    });
-  });
-</script>
+      /* ===== Header scroll shadow ===== */
+      var header = document.getElementById('site-header');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 10) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      /* ===== Current year ===== */
+      var yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      /* ===== Side menu ===== */
+      var menuToggle = document.getElementById('menu-toggle');
+      var sideMenu = document.getElementById('side-menu');
+      var sideOverlay = document.getElementById('side-overlay');
+      var sideClose = document.getElementById('side-menu-close');
+
+      function openSideMenu() {
+        sideMenu.classList.add('open');
+        sideOverlay.classList.add('open');
+        sideMenu.setAttribute('aria-hidden', 'false');
+        sideOverlay.setAttribute('aria-hidden', 'false');
+        menuToggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeSideMenu() {
+        sideMenu.classList.remove('open');
+        sideOverlay.classList.remove('open');
+        sideMenu.setAttribute('aria-hidden', 'true');
+        sideOverlay.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      menuToggle.addEventListener('click', openSideMenu);
+      sideClose.addEventListener('click', closeSideMenu);
+      sideOverlay.addEventListener('click', closeSideMenu);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeSideMenu();
+      });
+      sideMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', closeSideMenu);
+      });
+
+      /* ===== Animated stats counter ===== */
+      var statsAnimated = false;
+      function animateStats() {
+        if (statsAnimated) return;
+        var heroPanel = document.getElementById('hero-panel');
+        if (!heroPanel) return;
+        var rect = heroPanel.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          statsAnimated = true;
+          document.querySelectorAll('.stat-number').forEach(function (el) {
+            var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+            var start = 0;
+            var duration = 1600;
+            var startTime = null;
+            function step(ts) {
+              if (!startTime) startTime = ts;
+              var progress = Math.min((ts - startTime) / duration, 1);
+              var value = Math.floor(progress * (target - start) + start);
+              el.textContent = value + (target >= 100 && progress === 1 ? '+' : '');
+              if (progress < 1) requestAnimationFrame(step);
+              else el.textContent = target + (target >= 100 ? '+' : (target === 98 ? '%' : ''));
+            }
+            requestAnimationFrame(step);
+          });
+        }
+      }
+      window.addEventListener('scroll', animateStats);
+      window.addEventListener('load', animateStats);
+      animateStats();
+
+      /* ===== Contact form validation ===== */
+      var form = document.getElementById('contact-form');
+      var feedback = document.getElementById('form-feedback');
+
+      function setInvalid(field, invalid) {
+        var group = field.closest('.form-group');
+        if (!group) return;
+        if (invalid) group.classList.add('invalid');
+        else group.classList.remove('invalid');
+      }
+
+      function validEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        feedback.className = '';
+        feedback.textContent = '';
+
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var phone = document.getElementById('phone');
+        var service = document.getElementById('service');
+        var message = document.getElementById('message');
+        var valid = true;
+
+        if (!name.value.trim()) { setInvalid(name, true); valid = false; } else setInvalid(name, false);
+        if (!validEmail(email.value.trim())) { setInvalid(email, true); valid = false; } else setInvalid(email, false);
+        if (phone.value.trim() && phone.value.replace(/\D/g, '').length < 8) { setInvalid(phone, true); valid = false; } else setInvalid(phone, false);
+        if (!service.value) { setInvalid(service, true); valid = false; } else setInvalid(service, false);
+        if (!message.value.trim()) { setInvalid(message, true); valid = false; } else setInvalid(message, false);
+
+        if (!valid) {
+          feedback.classList.add('error');
+          feedback.textContent = 'Por favor, corrija os campos destacados.';
+          return;
+        }
+
+        feedback.classList.add('success');
+        feedback.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+        form.reset();
+      });
+
+      /* ===== Avatar chat with typing effect ===== */
+      var avatarBtn = document.getElementById('avatar-button');
+      var avatarBubble = document.getElementById('avatar-bubble');
+      var messages = [
+        'Olá! Sou o assistente da SUMONTEC. Posso te ajudar? 🤖',
+        'Precisa de um orçamento? Fale com a gente no WhatsApp! 📲',
+        'Atuamos com estruturas metálicas, concreto, elétrica e energia solar. ☀️',
+        'Visite nossa seção de serviços para conhecer todas as soluções. 🏗️'
+      ];
+      var msgIndex = 0;
+      var typingTimer = null;
+      var autoTimer = null;
+      var bubbleVisible = false;
+
+      function typeMessage(text, done) {
+        var i = 0;
+        avatarBubble.innerHTML = '<span class="typing-cursor"></span>';
+        clearInterval(typingTimer);
+        typingTimer = setInterval(function () {
+          i++;
+          avatarBubble.innerHTML = text.substring(0, i) + '<span class="typing-cursor"></span>';
+          if (i >= text.length) {
+            clearInterval(typingTimer);
+            avatarBubble.innerHTML = text;
+            if (done) done();
+          }
+        }, 28);
+      }
+
+      function showBubble() {
+        bubbleVisible = true;
+        avatarBubble.classList.add('show');
+      }
+
+      function hideBubble() {
+        bubbleVisible = false;
+        avatarBubble.classList.remove('show');
+        clearInterval(typingTimer);
+      }
+
+      function nextMessage() {
+        if (!bubbleVisible) return;
+        typeMessage(messages[msgIndex], function () {
+          msgIndex = (msgIndex + 1) % messages.length;
+          autoTimer = setTimeout(nextMessage, 4500);
+        });
+      }
+
+      avatarBtn.addEventListener('click', function () {
+        if (bubbleVisible) {
+          hideBubble();
+          clearTimeout(autoTimer);
+        } else {
+          showBubble();
+          nextMessage();
+        }
+      });
+
+      // Auto-open after 3s
+      setTimeout(function () {
+        if (!bubbleVisible) {
+          showBubble();
+          nextMessage();
+        }
+      }, 3000);
+
+      // Pause when tab hidden
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+          clearTimeout(autoTimer);
+          clearInterval(typingTimer);
+        } else if (bubbleVisible) {
+          nextMessage();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
